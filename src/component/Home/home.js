@@ -3,7 +3,7 @@ import './home.css';
 import{ Link } from 'react-router-dom';
 import{ Container, Row , Col, Carousel } from 'react-bootstrap';
 import Header from '../Header/header';
-
+import Footer from '../Footer/footer';
 
 
 const Home=()=>{
@@ -169,7 +169,7 @@ const Home=()=>{
              </Carousel>
           </div>
           <div className="section-5">
-          <Container>
+             <Container>
                    <h2>How It Works For Tutors</h2>
                    <Row> 
                       <Col md={4}>
@@ -198,6 +198,7 @@ const Home=()=>{
                    </Row>  
               </Container>
           </div>
+          <Footer/>
         </div>
     )
 }

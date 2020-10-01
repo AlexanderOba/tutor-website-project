@@ -9,6 +9,7 @@ const Ul = styled.ul`
     width: 40%;
     color: #fff;
     font-size: 14px;
+    align-items:  baseline;
     
     li a{
         list-style: none;

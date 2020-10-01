@@ -3,6 +3,7 @@ nav{
     justify-content: space-around;
     padding-top: 30px;
     padding-bottom: 10px;
+    align-items: baseline;
 }
 .logo{
     color:#fff;
@@ -51,7 +52,7 @@ nav{
         width: 97%;
     }
     .special-skills{
-        width: 105%;
+        width: 77%;
     }
 }  
 @media screen and (max-width:760px){
