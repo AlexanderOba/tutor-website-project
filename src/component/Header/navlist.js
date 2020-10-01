@@ -1,0 +1,47 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const Ul = styled.ul`
+    list-style: none;
+    display:flex;
+    justify-content: space-around;
+    width: 40%;
+    color: #fff;
+    font-size: 14px;
+    
+    li a{
+        list-style: none;
+        text-decoration: none;
+    }
+@media screen and (max-width:1024px){
+     width: 60%;
+}
+@media screen and (max-width:760px){
+    position: fixed;
+    left: -1px;
+    height: 92vh;
+    top: 8vh;
+    background-color:  #0675c1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    z-index: -6;
+    transform: ${({open}) => open ?'translateX(0)' : 'translateX(-100%)'};
+    transition: transform 0.5s ease-in-out;
+
+
+`;
+
+const Navlist=({open})=>{
+    return(
+            <Ul open={open}>
+                   <li> <Link className="navlinks">Sign in</Link> </li>
+                   <li> <Link className="navlinks">About Us</Link> </li>
+                   <li> <Link className="navlinks">Job Board</Link> </li>
+                   <li> <Link><span className="button">Become A Tutor</span></Link></li>
+           </Ul>
+    )
+}
+export default Navlist;

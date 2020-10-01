@@ -1,0 +1,251 @@
+@keyframes moveUp {
+    0% {
+      opacity: 0;
+      transform: translateY(5rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
+ .section-1{
+    background-size: cover;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.61) , rgba(0, 0, 0, 0.61)), url(../../images/teacher.jpg);
+    padding-bottom: 156px;    
+}
+.column-1{
+    padding-top: 190px ;
+    animation: moveUp 0.6s ease-out .8s;
+  animation-fill-mode: backwards;
+}
+.heading-primary{
+    display: block;
+   font-size: 40px;
+   font-weight: 500;
+    color: #fff;
+}
+.heading-primary-descr{
+    display: block;
+    color: #fff;
+}
+.heading-primary-descr:not(:last-child){
+    margin-top: 34px;
+}
+.button-blue{
+    display: inline-block;
+    padding: 5px 26px;
+    border-radius: 100px;
+    background-color: #0675c1;
+    color: #fff;
+    margin-bottom: 15px;
+    transition: all 0.5s ease;
+    border: 1px solid #0675c1;
+
+}
+a:link, a:visited{
+    color: inherit;
+    text-decoration: underline;
+}
+.button-blue:hover{
+    color: #0675c1;
+    background-color: #fff;
+    border: 1px solid #0675c1;
+}
+.button-blue i{
+    margin-left: 8px;
+}
+.section-2{
+  background-color: rgb(255,255,255);
+}
+.info-section{
+  position: relative;
+  top: -50px;
+}
+.column-2{
+  position: relative;
+  text-align: center;
+  padding: 40px;
+  background-color: #0675c1;
+  border-radius: 5px;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 15px;
+}
+.container::after{
+    content: "";
+    display: block;
+    line-height: 0;
+    clear: both;
+    height: 0px;
+    overflow: hidden;
+
+}
+.section-about{
+  padding-bottom: 60px;
+}
+.column-3{
+  text-align: center;
+  text-transform: uppercase;
+}
+.heading-about{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 35px;
+    margin-bottom: 30px;
+    font-weight: 600 ;
+    line-height: 65px;
+    color: rgb(43, 43, 44); 
+}
+.icon{
+  display: inline-block;
+  height: 69px;
+  width: 78px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.icon__home{
+  background-image: url(../../images/teacher-avatar.png);
+}
+.icon__group{
+  background-image: url(../../images/group-tutoring.png);
+}
+.icon__online{
+  background-image: url(../../images/online.png);
+}
+.icon__package{
+  background-image: url(../../images/package.png);
+}
+.title{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 18px;
+  color: #0675c1;
+  align-items: center;
+}
+.centered-image{
+  display: inline-block;
+  background-image: url(../../images/corprate-lady.jpg);
+  height: 402px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.margin-bottom:not(:last-child){
+  margin-bottom: 100px;
+}
+.centered-button{
+  text-align: center;
+  margin-top: 25px;
+}
+.signup-btn{
+  padding: 12px 124px;
+  font-size: 21px;
+}
+/*section three */
+.section-3{
+  background-color: #f2f5fc;
+  text-align: center;
+  padding: 60px 0px 60px 0px;
+}
+.icon__client{
+  background-image: url(../../images/clent-list.png);
+}
+.icon__search{
+  background-image: url(../../images/search.png);
+}
+.icon__best-tutor{
+  background-image: url(../../images/best-tutor.png);
+}
+.margin-top{
+  margin-top: 45px;
+}
+.margin-top h2{
+  font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+    color: #0675c1;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+/* section four styling*/
+.section-4{
+  text-align: center;
+  padding: 60px 0px 100px 0px;
+}
+.category-img{
+  display: inline-block;
+  width: 70%;
+  height: 312px;
+  margin-bottom: 30px;
+}
+.cat-content{
+  margin-top: 45px;
+}
+.test-preparation{
+  background-image: url(../../images/Test_Preparation.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.prof-skill{
+  background-image: url(../../images/Professional_Skill.png);
+  background-size: cover;
+  width: 90%;
+  background-repeat: no-repeat;
+}
+.proj-assignment{
+  background-image: url(../../images/Project_Assignment.png);
+  background-size: cover;
+  width: 66%;
+  background-repeat: no-repeat;
+  
+}
+.admission{
+  background-image: url(../../images/Admission_Test.png);
+  background-size: cover;
+  width: 90%;
+  background-repeat: no-repeat;
+}
+.arts{
+   background-image: url(../../images/arts.png);
+   background-repeat: no-repeat;
+   width: 82%;
+   background-size: cover;
+}
+.special-skills{
+  background-image: url(../../images/Special_Skill.png);
+  background-repeat: no-repeat;
+  width: 77%;
+}
+.cat-content h2{
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 600;
+  color: #2b2b2c;
+  letter-spacing: 0;
+}
+.carousel-indicators{
+  bottom: -50px;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon{
+  display: none;
+}
+.carousel-indicators li{
+  width:10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: #0675c1;
+}
+
+/*section five styling*/
+.section-5{
+  text-align: center;
+  background-color: #f2f5fc;
+  padding: 60px 0px 60px 0px;
+}
+.avatars{
+  background-image: url(../../images/2-avatars.png);
+}
+.grp-teacher{
+  background-image: url(../../images/grp-teacher.png);
+}
