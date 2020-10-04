@@ -1,13 +1,25 @@
-import React from 'react';
+import React,{ useEffect } from 'react';
 import { Container, Row, Col} from 'react-bootstrap';
 import './footer.css';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import "aos/dist/aos.css";
 
 const Footer = ()=>{
+
+    useEffect( () => {
+
+        AOS.init({
+           duration:1500,
+        });
+        AOS.refresh();
+      }, []);
+
     return(
         <div className="section-6">
             <Container>
-                <Row>
+                <div data-aos='fade-up'>
+                  <Row>
                     <Col md={4}>
                     <div className="footer-content">
                        <h2 className="footer-header">Toptutors</h2>
@@ -43,14 +55,15 @@ const Footer = ()=>{
                          <p>5 Temitayo Ayodeji street,<br/>graceland Estate <br/> Isheri Lagos. </p>
                       </div>
                     </Col>
-                </Row>
-                <Row>
+                 </Row>
+                 <Row>
                     <Col md={12}>
                         <div  className="copyright-section">
                           <p>Copyright &copy; 2020. Toptutors.com All rights reserved</p>
                         </div>
                     </Col>
-                </Row>
+                 </Row>
+              </div>
             </Container>
 
         </div>

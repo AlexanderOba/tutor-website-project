@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './home.css';
 import{ Link } from 'react-router-dom';
 import{ Container, Row , Col, Carousel } from 'react-bootstrap';
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
+import AOS from 'aos';
+import "aos/dist/aos.css";
 
 
 const Home=()=>{
+
+   useEffect( () => {
+
+      AOS.init({
+         duration:1500,
+      });
+      AOS.refresh();
+    }, []);
+
     return(
        <div>
           <div className="section-1">
@@ -29,8 +40,8 @@ const Home=()=>{
           </div>
           <div className="section-2">
               <div className="info-section">
-                  <Container>
-                          <div className="column-2">
+                  <Container >
+                          <div className="column-2"  data-aos='fade-right'>
                               <h4>
                                   Let a tutor help you to acquire new skills and Knowledge today
                               </h4>
@@ -40,25 +51,30 @@ const Home=()=>{
              
              <div className="section-about">
                   <Container>
-                        <h2 className="heading-about">What We Offer</h2>
+                     
+                        <h2 className="heading-about" data-aos='fade-down'>What We Offer</h2>
                    <Row>       
                       <Col md={3}>
-                          <div className="title">
-                             <span className="icon icon__home"></span>
-                             <h5>Home Tutoring</h5>
-                          </div>
-                         <p className="margin-bottom">
-                         It's a unique opportunity to learn in the home with your 
-                         expected tutor in different categories. Everything is in favor of your need.
-                         </p>
-                         <div className="title">
+                         <div  className="margin-bottom" data-aos='fade-up' >
+                            <div className="title" >
+                               <span className="icon icon__home"></span>
+                               <h5>Home Tutoring</h5>
+                            </div>
+                            <p>
+                              It's a unique opportunity to learn in the home with your 
+                             expected tutor in different categories. Everything is in favor of your need.
+                             </p>
+                         </div>
+                         <div data-aos='fade-up'>
+                            <div className="title">
                              <span className="icon icon__online"></span>
                              <h5>Online Tutoring</h5>
-                          </div>
-                         <p className="margin-bottom">
-                         Connect with the best tutors from anywhere 
-                         and take online classes by using different tools. Make your life more easier with this process.
-                         </p>
+                            </div>
+                            <p >
+                             Connect with the best tutors from anywhere 
+                             and take online classes by using different tools. Make your life more easier with this process.
+                           </p>
+                        </div>
                       </Col>
                       <Col md={6}>
                           <div className="title">
@@ -66,34 +82,39 @@ const Home=()=>{
                           </div>
                       </Col>
                       <Col md={3}>
-                          <div className="title">
+                         <div className="margin-bottom" data-aos='fade-right'>
+                            <div className="title">
                              <span className="icon icon__group"></span>
                              <h5>Group  Tutoring</h5>
-                          </div>   
-                          <p className="margin-bottom">
-                          A group of students
-                          can full fill their hunger for learning at an affordable money range. Get ready for the competitive world!
-                          </p>
-                          <div className="title">
+                            </div>   
+                            <p className="margin-bottom">
+                            A group of students
+                             can full fill their hunger for learning at an affordable money range. Get ready for the competitive world!
+                            </p>
+                         </div>
+                         <div data-aos='fade-right'>
+                            <div className="title">
                              <span className="icon icon__package"></span>
                              <h5>Package Tutoring</h5>
-                          </div>
-                         <p className="margin-bottom">
-                           Choose the tutor from a variety of
-                           categories and start learning for the specific one. And explore yourself in a newer version of you.
-                         </p>
+                            </div>
+                          
+                            <p className="margin-bottom">
+                               Choose the tutor from a variety of
+                               categories and start learning for the specific one. And explore yourself in a newer version of you.
+                            </p>
+                         </div>
                       </Col>
                    </Row>  
-                 <div className="centered-button"><Link><span className="button-blue signup-btn">Sign Up</span> </Link></div> 
+                 <div className="centered-button" data-aos='fade-up' ><Link><span className="button-blue signup-btn">Sign Up</span> </Link></div> 
                   </Container>
              </div>     
           </div>
           <div className="section-3">
               <Container>
-                   <h2>How It Works For Students/Parents?</h2>
+                   <h2 data-aos='fade-up'>How It Works For Students/Parents?</h2>
                    <Row> 
                       <Col md={4}>
-                          <div className="margin-top">
+                          <div className="margin-top" data-aos='flip-left'>
                              <span className="icon icon__client"></span>
                              <h2>Post your<br></br> tutor requirements</h2>
                               <p>Post your Tutor requirements. Our experts will analyze it 
@@ -101,7 +122,7 @@ const Home=()=>{
                          </div>
                       </Col>
                       <Col md={4} lg={4} sm={6}>
-                         <div className="margin-top">
+                         <div className="margin-top" data-aos='flip-left'>
                              <span className="icon icon__search"></span>
                              <h2>Get the maximum<br></br>first 5 best CVs</h2>
                               <p>You'll receive the 5 (max) best Tutors' CVs in your 
@@ -109,7 +130,7 @@ const Home=()=>{
                          </div>
                       </Col>
                       <Col md={4} lg={4}>
-                         <div className="margin-top">
+                         <div className="margin-top" data-aos='flip-left'>
                              <span className="icon icon__best-tutor"></span>
                              <h2>Select the best one<br></br>& start learning</h2>
                               <p>Choose the best one among the 5 CV's. Offer 
@@ -120,8 +141,8 @@ const Home=()=>{
               </Container>
           </div>
           <div className="section-4">
-             <h2>Serving Category</h2>
-             <Carousel>
+             <h2 data-aos='fade-down'>Serving Category</h2>
+             <Carousel data-aos='zoom-in-up'>
                 <Carousel.Item>
                    <Row>
                       <Col md={4}>
@@ -170,10 +191,10 @@ const Home=()=>{
           </div>
           <div className="section-5">
              <Container>
-                   <h2>How It Works For Tutors</h2>
+                   <h2 data-aos='fade-up'>How It Works For Tutors</h2>
                    <Row> 
                       <Col md={4}>
-                          <div className="margin-top">
+                          <div className="margin-top" data-aos='flip-left'>
                              <span className="icon avatars"></span>
                              <h2>Create a free<br></br> Account</h2>
                               <p>Make your profile in minutes. Add your educational
@@ -181,7 +202,7 @@ const Home=()=>{
                          </div>
                       </Col>
                       <Col md={4} lg={4} sm={6}>
-                         <div className="margin-top">
+                         <div className="margin-top" data-aos='flip-left'>
                              <span className="icon icon__search"></span>
                              <h2>Apply to Your Desired <br></br>Tuition Job</h2>
                               <p>Check our job board everyday and apply to your preferred 
@@ -189,7 +210,7 @@ const Home=()=>{
                          </div>
                       </Col>
                       <Col md={4} lg={4}>
-                         <div className="margin-top">
+                         <div className="margin-top" data-aos='flip-left'>
                              <span className="icon grp-teacher"></span>
                              <h2>Start Tutoring</h2>
                               <p>Get selected by students/parents if your expertise matches their requirements</p>

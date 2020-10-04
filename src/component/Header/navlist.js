@@ -38,8 +38,8 @@ const Ul = styled.ul`
 const Navlist=({open})=>{
     return(
             <Ul open={open}>
+                   <li> <Link className="navlinks">About Us</Link> </li> 
                    <li> <Link className="navlinks">Sign in</Link> </li>
-                   <li> <Link className="navlinks">About Us</Link> </li>
                    <li> <Link className="navlinks">Job Board</Link> </li>
                    <li> <Link><span className="button">Become A Tutor</span></Link></li>
            </Ul>
