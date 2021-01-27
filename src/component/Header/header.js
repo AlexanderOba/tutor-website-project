@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './header.css';
 import Burger from './burger';
-
+import {IonApp, IonHeader,IonTitle,IonToolbar  } from '@ionic/react';
 
 
 

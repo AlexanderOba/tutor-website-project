@@ -1,0 +1,9 @@
+.centered-message{
+    background-color: #0675c1;
+    color: #fff;
+    height: 100vh;
+    text-align: center;
+}
+.centered-message > div{
+    padding-top: 291px;
+}

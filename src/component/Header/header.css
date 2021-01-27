@@ -7,9 +7,16 @@ nav{
 }
 .logo{
     color:#fff;
+    display: flex;
 }
 
-
+.logo_img{
+    display: inline-block;
+    background-image: url(../../images/toptutors.svg);
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 100px;
+}
   .navlist li .navlinks {
     text-decoration: none;
     color: inherit;

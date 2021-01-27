@@ -6,6 +6,7 @@ import Header from '../Header/header';
 import Footer from '../Footer/footer';
 import AOS from 'aos';
 import "aos/dist/aos.css";
+import {IonApp, IonHeader,IonTitle,IonToolbar  } from '@ionic/react';
 
 
 const Home=()=>{
@@ -19,7 +20,7 @@ const Home=()=>{
     }, []);
 
     return(
-       <div>
+       <IonApp>
           <div className="section-1">
               <Header/>
               <Container>
@@ -32,7 +33,7 @@ const Home=()=>{
                              <span className="heading-primary-descr">Book one on one lessons with verified</span>
                              <span className="heading-primary-descr">tutors in your area</span>
                           </p> 
-                          <Link> <span className="button-blue">Hire a tutor <i class="fa fa-arrow-right"></i></span></Link>
+                          <Link to="/signup"> <span className="button-blue">Hire a tutor <i class="fa fa-arrow-right"></i></span></Link>
                           <p className="heading-primary-descr">want to become a Toptutor? <Link to="/signup">Sign up</Link> now </p>
                      </Col>
                  </Row>
@@ -105,7 +106,7 @@ const Home=()=>{
                          </div>
                       </Col>
                    </Row>  
-                 <div className="centered-button" data-aos='fade-up' ><Link><span className="button-blue signup-btn">Sign Up</span> </Link></div> 
+                 <div className="centered-button" data-aos='fade-up' ><Link to="/signup" ><span className="button-blue signup-btn">Sign Up</span> </Link></div> 
                   </Container>
              </div>     
           </div>
@@ -220,7 +221,7 @@ const Home=()=>{
               </Container>
           </div>
           <Footer/>
-        </div>
+        </IonApp>
     )
 }
 export default Home;

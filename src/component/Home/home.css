@@ -15,7 +15,7 @@
 }
 .column-1{
     padding-top: 190px ;
-    animation: moveUp 1.5s ease-out .8s;
+    animation: moveUp 1s ease-out .8s;
   animation-fill-mode: backwards;
 }
 .heading-primary{
@@ -70,7 +70,7 @@ a:link, a:visited{
   color: #fff;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 15px;
 }
-.container::after{
+/* .container::after{
     content: "";
     display: block;
     line-height: 0;
@@ -78,7 +78,7 @@ a:link, a:visited{
     height: 0px;
     overflow: hidden;
 
-}
+} */
 .section-about{
   padding-bottom: 60px;
 }
