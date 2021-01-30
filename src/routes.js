@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { IonReactRouter } from '@ionic/react-router';
+import {
+    IonApp,
+
+  } from '@ionic/react';
 
 import Home from './component/Home/home';
 import Signup from './component/Signup/signup';
@@ -10,15 +15,15 @@ class Routes extends Component{
     render(){
         return(
            
-            <Layout>
-                <Switch>
-                    <Route  exact path ="/" component={Home}/>
-                    <Route   path ="/signup" component={Signup}/>
-                    <Route   path ="/aboutus" component={About}/>
-                </Switch>
-            </Layout>
-    
-           
+             <Layout>
+                 <IonApp>
+                     <Switch>
+                         <Route   path ="/signup" component={Signup}/>
+                         <Route   path ="/aboutus" component={About}/>
+                         <Route  exact path ="/" component={Home}/>
+                     </Switch>
+                </IonApp>
+             </Layout>
         )
     }
 }

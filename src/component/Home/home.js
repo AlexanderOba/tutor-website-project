@@ -6,7 +6,7 @@ import Header from '../Header/header';
 import Footer from '../Footer/footer';
 import AOS from 'aos';
 import "aos/dist/aos.css";
-import {IonApp, IonHeader,IonTitle,IonToolbar  } from '@ionic/react';
+import {IonApp} from '@ionic/react';
 
 
 const Home=()=>{
@@ -20,7 +20,7 @@ const Home=()=>{
     }, []);
 
     return(
-       <IonApp>
+       <div>
           <div className="section-1">
               <Header/>
               <Container>
@@ -221,7 +221,7 @@ const Home=()=>{
               </Container>
           </div>
           <Footer/>
-        </IonApp>
+        </div>
     )
 }
 export default Home;
