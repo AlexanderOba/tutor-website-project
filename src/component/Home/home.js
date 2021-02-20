@@ -6,7 +6,6 @@ import Header from '../Header/header';
 import Footer from '../Footer/footer';
 import AOS from 'aos';
 import "aos/dist/aos.css";
-import {IonApp} from '@ionic/react';
 
 
 const Home=()=>{
@@ -22,7 +21,7 @@ const Home=()=>{
     return(
        <div>
           <div className="section-1">
-              <Header/>
+              <Header />
               <Container>
                   <Row>
                      <Col sm={12} lg={12} md={12} className="column-1" >

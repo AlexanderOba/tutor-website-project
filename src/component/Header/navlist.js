@@ -35,13 +35,13 @@ const Ul = styled.ul`
 
 `;
 
-const Navlist=({open})=>{
+const Navlist=({open,style})=>{
     return(
-            <Ul open={open}>
+            <Ul open={open} style={style}>
                    <li> <Link  className="navlinks" to="/aboutus">About Us</Link> </li> 
-                   <li> <Link to="/signup" className="navlinks">Sign in</Link> </li>
-                   <li> <Link to="/signup" className="navlinks">Job Board</Link> </li>
-                   <li> <Link to="/signup"><span className="button">Become A Tutor</span></Link></li>
+                   <li> <Link to="/signin" className="navlinks">Sign in</Link> </li>
+                   <li> <Link to="/" className="navlinks">Job Board</Link> </li>
+                   <li> <Link to="/"><span className="button">Become A Tutor</span></Link></li>
            </Ul>
     )
 }
