@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import "./signin.css";
 import { Link, withRouter } from "react-router-dom";
 import { Container, Row, Col, Form, Alert } from "react-bootstrap";
 import Axios from "axios";
@@ -7,6 +6,7 @@ import Header_2 from '../Header_2/header_2';
 import { API } from "../../config";
 import eye from "../../images/eye.png";
 import eyeclose from "../../images/eye-off.png";
+import Footer from "../Footer/footer";
 
 const Signin = withRouter(() => {
   const [state, setState] = useState({
@@ -108,7 +108,10 @@ const Signin = withRouter(() => {
   };
   return (
     <div>
-       <Header_2 /> 
+       <Header_2 style={{
+        boxShadow: "0 0 10px rgb(0 0 0 / 30%)",
+        position: "relative"
+      }}/> 
       <div className="rdsignup-section paddit">
         <Container>
           <Row className="rsignuprow">
@@ -220,6 +223,7 @@ const Signin = withRouter(() => {
           </Row>
         </Container>
       </div>
+      <Footer/>
     </div>
   );
 });

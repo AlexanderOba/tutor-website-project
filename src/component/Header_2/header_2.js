@@ -9,7 +9,7 @@ class Header_2 extends Component {
     render(){
         return(
             
-            <nav>
+            <nav style={this.props.style}>
                <div className="logo2">
                   <h5>Toptutors</h5>
                </div>

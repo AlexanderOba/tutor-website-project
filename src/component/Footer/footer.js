@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 
-const Footer = ()=>{
+const Footer = ({style})=>{
 
     useEffect( () => {
 
@@ -16,7 +16,7 @@ const Footer = ()=>{
       }, []);
 
     return(
-        <div className="section-6">
+        <div className="section-6" style={style}>
             <Container>
                 <div data-aos='fade-up'>
                   <Row>
@@ -59,7 +59,7 @@ const Footer = ()=>{
                  <Row>
                     <Col md={12}>
                         <div  className="copyright-section">
-                          <p>Copyright &copy; 2020. Toptutors.com All rights reserved</p>
+                          <p>Copyright &copy; 2021. Toptutors.com All rights reserved</p>
                         </div>
                     </Col>
                  </Row>

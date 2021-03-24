@@ -36,6 +36,8 @@
     padding: 40px 45px 23px 45px;
     background-color: #fff;
     color: #23304c;
+    
+    box-shadow: 0 0 10px rgb(0 0 0 / 30%);
   }
   .rdsignupfrmdv {
     text-align: center;

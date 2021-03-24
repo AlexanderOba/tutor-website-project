@@ -9,6 +9,7 @@ import Alert from "react-bootstrap/Alert";
 import eye from "../../images/eye.png";
 import eyeclose from "../../images/eye-off.png";
 import drpdwnarr from "../../images/dwn-arrw.png";
+import Footer from "../Footer/footer";
 
 const Signup = withRouter(() => {
   const [state, setFormState] = useState({
@@ -161,8 +162,11 @@ const Signup = withRouter(() => {
   };
   return (
     <div>
-      <Header_2/>
-      <div className="rdsignup-section paddit">
+      <Header_2 style={{
+        boxShadow: "0 0 10px rgb(0 0 0 / 30%)",
+        position: "relative"
+      }}/>
+      <div className="rdsignup-section ">
         <Container>
           <Row className="rsignuprow">
             <Col md={12} className="rsignupdiv">
@@ -344,6 +348,7 @@ const Signup = withRouter(() => {
           </Row>
         </Container>
       </div>
+      <Footer/>
     </div>
   );
 });
