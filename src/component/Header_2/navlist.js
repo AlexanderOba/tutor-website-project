@@ -7,7 +7,7 @@ const Ul = styled.ul`
     display:flex;
     justify-content: space-around;
     width: 40%;
-    color: #fff;
+    color: #333;
     font-size: 14px;
     align-items:  baseline;
     
@@ -38,10 +38,10 @@ const Ul = styled.ul`
 const Navlist=({open})=>{
     return(
             <Ul open={open}>
-                   <li> <Link  className="navlinks" to="/aboutus">About Us</Link> </li> 
-                   <li> <Link to="/signin" className="navlinks">Sign in</Link> </li>
-                   <li> <Link to="#" className="navlinks">Job Board</Link> </li>
-                   <li> <Link to="#"><span className="button">Become A Tutor</span></Link></li>
+                   <li> <Link  className="navlinks_2" to="/aboutus">About Us</Link> </li> 
+                   <li> <Link to="/signin" className="navlinks_2">Sign in</Link> </li>
+                   <li> <Link to="#" className="navlinks_2">Job Board</Link> </li>
+                   <li> <Link to="#"><span className="button_2">Become A Tutor</span></Link></li>
            </Ul>
     )
 }

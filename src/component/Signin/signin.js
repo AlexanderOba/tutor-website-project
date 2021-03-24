@@ -2,7 +2,8 @@ import React, { useState } from "react";
 // import "./signin.css";
 import { Link, withRouter } from "react-router-dom";
 import { Container, Row, Col, Form, Alert } from "react-bootstrap";
-import axios, { AxiosResponse } from "axios";
+import Axios from "axios";
+import Header_2 from '../Header_2/header_2';
 import { API } from "../../config";
 import eye from "../../images/eye.png";
 import eyeclose from "../../images/eye-off.png";
@@ -35,7 +36,7 @@ const Signin = withRouter(() => {
       email,
       password,
     };
-    axios
+    Axios
       .post(`${API}/accounts/login`, data)
       .then((response) => {
         console.log(response);
@@ -81,7 +82,7 @@ const Signin = withRouter(() => {
       passwordIsOpen: state.passwordIsOpen ? false : true,
     });
   };
-  
+
   const validateForm = (e) => {
     e.preventDefault();
     if (email=="" && password == ""){
@@ -107,7 +108,7 @@ const Signin = withRouter(() => {
   };
   return (
     <div>
-      {/* <Navbar /> */}
+       <Header_2 /> 
       <div className="rdsignup-section paddit">
         <Container>
           <Row className="rsignuprow">

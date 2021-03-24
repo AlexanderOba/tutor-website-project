@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import './header.css';
+import './header_2.css';
 import Burger from './burger';
 
 
 
 
-class Header extends Component {
+class Header_2 extends Component {
     render(){
         return(
             
-              <nav>
-               <div className="logo">
+            <nav>
+               <div className="logo2">
                   <h5>Toptutors</h5>
                </div>
                <Burger/>
@@ -19,4 +19,4 @@ class Header extends Component {
         )
     }
 }
-export default Header;
+export default Header_2;

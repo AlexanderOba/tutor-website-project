@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "./signup.css";
+import './signup.css';
 import { Link, withRouter } from "react-router-dom";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import axios from "axios";
-import Header from '../Header/header';
+import Header_2 from '../Header_2/header_2';
 import { API } from "../../config";
 import Alert from "react-bootstrap/Alert";
 import eye from "../../images/eye.png";
@@ -42,8 +42,7 @@ const Signup = withRouter(() => {
        ...state,
        isLoading: true 
     });
-
-    const data = {
+   const data = {
       first_name: firstname,
       last_name: lastname,
       email: email,
@@ -88,18 +87,9 @@ const Signup = withRouter(() => {
           isLoading: false,
           error: true,
         });
-      });
-  };
-  // useEffect(() => {
-  //   const query = new URLSearchParams(props.location.search);
-  //   const referralKey = query.get("referral");
-  //   if(referralKey){
-  //     setFormState({
-  //       ...state,
-  //       referralCode:referralKey
-  //     })
-  //   }
-  // }, []);
+      }, []);
+
+  }
   const onChangeHandler = (e) => {
     setFormState({
       ...state,
@@ -171,7 +161,7 @@ const Signup = withRouter(() => {
   };
   return (
     <div>
-      <Header/>
+      <Header_2/>
       <div className="rdsignup-section paddit">
         <Container>
           <Row className="rsignuprow">

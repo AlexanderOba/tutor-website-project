@@ -6,6 +6,7 @@
     "@ionic/react": "^5.5.2",
     "@ionic/react-router": "^5.5.2",
     "aos": "^2.3.4",
+    "axios": "^0.21.1",
     "bootstrap": "^4.5.2",
     "browserslist": "^4.14.5",
     "caniuse-lite": "^1.0.30001137",

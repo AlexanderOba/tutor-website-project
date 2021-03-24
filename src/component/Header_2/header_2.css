@@ -1,0 +1,95 @@
+nav{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    align-items: baseline;
+ 
+}
+.logo2{
+    color: #0675c1;
+    display: flex;
+}
+
+.logo_img{
+    display: inline-block;
+    background-image: url(../../images/toptutors.svg);
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 100px;
+}
+ .navlist li .navlinks {
+    text-decoration: none;
+    color: inherit;
+}
+.navlinks_2:hover{
+    color: #0675c1;
+}
+.navlinks_2::after {
+    display:block;
+    content: '';
+    border-bottom: solid 3px #333;  
+    transform: scaleX(0);  
+    transition: transform 300ms ease-in-out;
+}
+.navlinks_2:hover::after { 
+    transform: scaleX(1);
+    border-bottom: solid 3px #0675c1;  
+}
+.button_2{
+    display: inline-block;
+    border-radius: 7px;
+    padding: 5px 26px;
+    background-color: #f2f5fc;
+    color: #0675c1;
+    transition: all 0.5s ease;
+}
+
+.burger{
+    display: none;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width:1024px){
+    .navlist{
+        width: 60%;
+    }
+    .proj-assignment{
+        width: 97%;
+    }
+    .special-skills{
+        width: 77%;
+    }
+}  
+@media screen and (max-width:760px){
+    body{
+      overflow-x: hidden;
+  
+  }
+  .logo2{
+      color: #fff;
+  }
+  .navlinks_2{
+    color: #fff !important;
+}
+ nav{
+  display: flex;
+  position: fixed;
+  background-color: #0675c1;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 9vh;
+  z-index: 12;
+  width: 100%;
+  padding: 20px -1px 20px -1px;
+ }
+ .distance{
+  display: block;
+ }
+ .button:hover{
+    color:#0675c1;
+    background-color: #fff;
+ }
+}
+

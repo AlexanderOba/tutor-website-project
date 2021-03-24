@@ -21,7 +21,7 @@ const Home=()=>{
     return(
        <div>
           <div className="section-1">
-              <Header />
+              <Header/>
               <Container>
                   <Row>
                      <Col sm={12} lg={12} md={12} className="column-1" >
