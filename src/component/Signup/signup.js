@@ -10,6 +10,8 @@ import eye from "../../images/eye.png";
 import eyeclose from "../../images/eye-off.png";
 import drpdwnarr from "../../images/dwn-arrw.png";
 import Footer from "../Footer/footer";
+import guardianimg from "../../images/guardian.png";
+import tutorimg from "../../images/tutoricn.png"
 
 const Signup = withRouter(() => {
   const [state, setFormState] = useState({
@@ -168,6 +170,46 @@ const Signup = withRouter(() => {
       }}/>
       <div className="rdsignup-section ">
         <Container>
+        <Row className="rsignuprow">
+            <Col md={8} className="paneldshbdselector">
+              <Row>
+                <Col md={6} >
+                  <label className="guardinsltrdv">
+                     <span className="panel-img">
+                        <img src={guardianimg}/>
+                     </span>
+                      <div className="paneltext">
+                         <h6>Guardian or Students</h6>
+                         <p>Hi! I need a tutor</p>
+                       </div>
+                       <div className="panelicon">
+                         <input type="radio"/>
+                         <div className="radiobtns">
+                         <span class="fa fa-check" aria-hidden="true"></span>
+                         </div>
+                       </div>
+                  </label>
+               </Col>
+               <Col md={6}>
+                  <label className="guardinsltrdv">
+                     <span className="panel-img">
+                        <img src={tutorimg}/>
+                     </span>
+                      <div className="paneltext">
+                         <h6>Tutor</h6>
+                         <p>Hi! i'm in need of tuition</p>
+                       </div>
+                       <div className="panelicon">
+                         <input type="radio"/>
+                         <div className="radiobtns">
+                         <span class="fa fa-check" aria-hidden="true"></span>
+                         </div>
+                       </div>
+                  </label>
+               </Col>
+             </Row>
+           </Col>
+        </Row>
           <Row className="rsignuprow">
             <Col md={12} className="rsignupdiv">
               <p>

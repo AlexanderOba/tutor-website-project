@@ -42,7 +42,7 @@ const Navlist=({open})=>{
                    <li> <Link  className="navlinks_2" to="/aboutus">About Us</Link> </li> 
                    <li> <Link to="#" className="navlinks_2">Job Board</Link> </li>
                    <li> <Link to="/signin" className="navlinks_2">Sign in</Link> </li>
-                   <li> <Link to="#"><span className="button_2">Become A Tutor</span></Link></li>
+                   <li> <Link to="/signup"><span className="button_2">Become A Tutor</span></Link></li>
            </Ul>
     )
 }

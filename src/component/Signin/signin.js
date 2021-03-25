@@ -7,6 +7,8 @@ import { API } from "../../config";
 import eye from "../../images/eye.png";
 import eyeclose from "../../images/eye-off.png";
 import Footer from "../Footer/footer";
+import guardianimg from "../../images/guardian.png";
+import tutorimg from "../../images/tutoricn.png"
 
 const Signin = withRouter(() => {
   const [state, setState] = useState({
@@ -115,19 +117,46 @@ const Signin = withRouter(() => {
       <div className="rdsignup-section paddit">
         <Container>
           <Row className="rsignuprow">
-            <Col md={12} className="rsignupdiv">
-              {/* <p>
-                Registering to this website, you accept our
-                <span className="t_plinkspn">
-                  <Link to="/terms&conditions" target="_blank"> Terms of Use </Link>{" "}
-                </span>{" "}
-                and our
-                <span className="t_plinkspn">
-                  {" "}
-                  <Link to="/privacy_policy" target="_blank">Privacy Policy</Link>{" "}
-                </span>
-              </p> */}
-            </Col>
+            <Col md={8} className="paneldshbdselector">
+              <Row>
+                <Col md={6} >
+                  <label className="guardinsltrdv">
+                     <span className="panel-img">
+                        <img src={guardianimg}/>
+                     </span>
+                      <div className="paneltext">
+                         <h6>Guardian or Students</h6>
+                         <p>Hi! I need a tutor</p>
+                       </div>
+                       <div className="panelicon">
+                         <input type="radio"/>
+                         <div className="radiobtns">
+                         <span class="fa fa-check" aria-hidden="true"></span>
+                         </div>
+                       </div>
+                  </label>
+               </Col>
+               <Col md={6}>
+                  <label className="guardinsltrdv">
+                     <span className="panel-img">
+                        <img src={tutorimg}/>
+                     </span>
+                      <div className="paneltext">
+                         <h6>Tutor</h6>
+                         <p>Hi! i'm in need of tuition</p>
+                       </div>
+                       <div className="panelicon">
+                         <input type="radio"/>
+                         <div className="radiobtns">
+                         <span class="fa fa-check" aria-hidden="true"></span>
+                         </div>
+                       </div>
+                  </label>
+               </Col>
+             </Row>
+           </Col>
+        </Row>
+          <Row className="rsignuprow">
             <Col md={7}>
               <Form className="rdsignupform" onSubmit={validateForm}>
                 <div className="rdsignupfrmdv">
