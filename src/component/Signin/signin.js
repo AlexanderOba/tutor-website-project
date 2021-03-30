@@ -18,6 +18,7 @@ const Signin = withRouter(() => {
     successMessage: "",
     isLoading: false,
     passwordIsOpen: true,
+    userType: "",
     error: false,
   });
   const {
@@ -25,6 +26,7 @@ const Signin = withRouter(() => {
     password,
     passwordIsOpen,
     error,
+    userType,
     errorMessage,
     successMessage,
     isLoading,
@@ -37,6 +39,7 @@ const Signin = withRouter(() => {
     const data = {
       email,
       password,
+      userType: userType,
     };
     Axios
       .post(`${API}/accounts/login`, data)
@@ -78,6 +81,13 @@ const Signin = withRouter(() => {
       errorMessage: "",
     });
   };
+  const userCategory = (e) =>{
+    setState({
+      ...state,
+      userType: e.target.value,
+    })
+  console.log(userType)
+  }
   const hidePassword = () => {
     setState({
       ...state,
@@ -129,7 +139,12 @@ const Signin = withRouter(() => {
                          <p>Hi! I need a tutor</p>
                        </div>
                        <div className="panelicon">
-                         <input type="radio"/>
+                         <input 
+                         type="radio"
+                         value="Parent_Student" 
+                         onChange={userCategory}
+                         checked={ userType === "Parent_Student" }
+                         />
                          <div className="radiobtns">
                          <span class="fa fa-check" aria-hidden="true"></span>
                          </div>
@@ -146,7 +161,12 @@ const Signin = withRouter(() => {
                          <p>Hi! i'm in need of tuition</p>
                        </div>
                        <div className="panelicon">
-                         <input type="radio"/>
+                         <input
+                          type="radio"
+                          value="Tutor" 
+                          onChange={userCategory}
+                          checked={ userType === "Tutor" }
+                          />
                          <div className="radiobtns">
                          <span class="fa fa-check" aria-hidden="true"></span>
                          </div>
@@ -236,13 +256,13 @@ const Signin = withRouter(() => {
                   </p>
                 </div>
                 <div className="rdsgnupfrmbtndv">
-                  <button
+                  <span
                     type="submit"
                     onClick={validateForm}
                     className="rdsgnfrmbtn rdsgnup-animated"
                   >
                     {!isLoading ? "Login" : "Processing..."}
-                  </button>
+                  </span>
                 </div>
                 <p className="rdsgnalready">
                 <Link to="/signup"> Don't have an account?Sign Up</Link>

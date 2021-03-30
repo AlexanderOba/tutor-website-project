@@ -18,11 +18,13 @@ const Signup = withRouter(() => {
     firstname: "",
     lastname: "",
     email: "",
+    address:"",
     password: "",
     howYouHeardAboutUs: "",
-    referralCode: "",
+    phone_number: "",
     successMessage: "",
     errorMessage: "",
+    userType: "",
     passwordIsOpen: true,
     error: false,
     isLoading: false,
@@ -34,8 +36,10 @@ const Signup = withRouter(() => {
     password,
     isLoading,
     howYouHeardAboutUs,
-    referralCode,
+    phone_number,
+    address,
     lastname,
+    userType,
     successMessage,
     errorMessage,
   } = state;
@@ -51,12 +55,14 @@ const Signup = withRouter(() => {
       email: email,
       password: password,
       info: howYouHeardAboutUs,
-      referral_code: referralCode,
+      phone_number: phone_number,
+      address: address,
+      userType: userType,
     };
     console.log(data);
     //posting data to the api
     axios
-      .post(`${API}/accounts/signup/`, data)
+      .post(`${API}/parent/signup/`, data)
       .then((response) => {
         console.log(response);
         if (response.status === 200) {
@@ -107,21 +113,23 @@ const Signup = withRouter(() => {
       howYouHeardAboutUs: e.target.value,
     });
   };
+  const userCategory = (e) =>{
+    setFormState({
+      ...state,
+      userType: e.target.value,
+    })
+  console.log(userType)
+  }
   const validateForm = (e) => {
     e.preventDefault();
-    if (password.length < 6) {
-      return setFormState({
-        ...state,
-        errorMessage: "Password must be at least 6 characters long",
-        isLoading: false,
-      });
-    }
+  
     if (firstname == "" && lastname == "" && email == "" && password == "") {
       return setFormState({
         ...state,
         errorMessage: "please enter your details",
       });
     }
+    
     if (firstname == "") {
       return setFormState({
         ...state,
@@ -134,25 +142,45 @@ const Signup = withRouter(() => {
         errorMessage: "Please enter your lastname",
       });
     }
-    if (howYouHeardAboutUs == "") {
-      return setFormState({
-        ...state,
-        errorMessage: "Please enter you heard about us",
-      });
-    }
+ 
     if (email == "") {
       return setFormState({
         ...state,
         errorMessage: "Please enter your email",
       });
     }
-
+    if (address == "") {
+      return setFormState({
+        ...state,
+        errorMessage: "Please enter home address",
+      });
+    }
+    if (howYouHeardAboutUs == "") {
+      return setFormState({
+        ...state,
+        errorMessage: "Please enter you heard about us",
+      });
+    }
+    if (phone_number == "") {
+      return setFormState({
+        ...state,
+        errorMessage: "Please enter your phone number",
+      });
+    }
     if (password == "") {
       return setFormState({
         ...state,
         errorMessage: "Please enter your password",
       });
-    } else {
+    } 
+    if (password.length < 6) {
+      return setFormState({
+        ...state,
+        errorMessage: "Password must be at least 6 characters long",
+        isLoading: false,
+      });
+    }
+    else {
       onSubmit();
     }
   };
@@ -183,7 +211,12 @@ const Signup = withRouter(() => {
                          <p>Hi! I need a tutor</p>
                        </div>
                        <div className="panelicon">
-                         <input type="radio"/>
+                         <input
+                          type="radio"
+                          value="Parent_Student" 
+                          onChange={userCategory}
+                          checked={ userType === "Parent_Student" }
+                          />
                          <div className="radiobtns">
                          <span class="fa fa-check" aria-hidden="true"></span>
                          </div>
@@ -200,7 +233,12 @@ const Signup = withRouter(() => {
                          <p>Hi! i'm in need of tuition</p>
                        </div>
                        <div className="panelicon">
-                         <input type="radio"/>
+                         <input
+                          type="radio" 
+                          value="Tutor"  
+                          onChange={userCategory}
+                          checked={userType === "Tutor"}
+                          />
                          <div className="radiobtns">
                          <span class="fa fa-check" aria-hidden="true"></span>
                          </div>
@@ -230,7 +268,7 @@ const Signup = withRouter(() => {
                   <h4 className="sgnfrmhder">Sign Up</h4>
                   <div>
                     <div className="sgnupfrmline"></div>
-                    <span className="sgnupdescr">(to get Clarity)</span>
+                    <span className="sgnupdescr">(Welcome to Toptutors)</span>
                   </div>
                 </div>
                 {successMessage && (
@@ -287,6 +325,18 @@ const Signup = withRouter(() => {
                   />
                 </label>
                 <label>
+                  <span className="rdfrmlbl"> Home Address </span>
+                  <input
+                    type="text"
+                    name="address"
+                    value={address}
+                    onChange={onChangeHandler}
+                    placeholder="Enter your Home Address"
+                    size={70}
+                    className="form-control rdsignupinput"
+                  />
+                </label>
+                <label>
                   <span className="rdfrmlbl">Password</span>
                   <input
                     type={passwordIsOpen ? "password" : "text"}
@@ -321,6 +371,18 @@ const Signup = withRouter(() => {
                   contain whitespace.
                 </p>
                 <Row>
+                  <Col md={6}>
+                    <span className="rdfrmlbl rdfrmlblrf"> Phone Number </span>
+                    <input
+                      type="text"
+                      size={25}
+                      name="phone_number"
+                      className="rdfrmtinptt"
+                      value={phone_number}
+                      onChange={onChangeHandler}
+                      placeholder="Enter referral code (optional)"
+                    />
+                  </Col>
                   <Col md={6}>
                     {" "}
                     <span className="rdfrmlblslt rdfrmlblsltt">
@@ -360,27 +422,15 @@ const Signup = withRouter(() => {
                       <img src={drpdwnarr} className="drparr" />
                     </div>
                   </Col>
-                  <Col md={6}>
-                    <span className="rdfrmlbl rdfrmlblrf"> Referral code </span>
-                    <input
-                      type="text"
-                      size={25}
-                      name="referralCode"
-                      className="rdfrmtinptt"
-                      value={referralCode}
-                      onChange={onChangeHandler}
-                      placeholder="Enter referral code (optional)"
-                    />
-                  </Col>
                 </Row>
                 <div className="rdsgnupfrmbtndv">
-                  <button
+                  <span
                     type="submit"
                     onClick={validateForm}
                     className="rdsgnfrmbtn rdsgnup-animated"
                   >
                     {!isLoading ? "Sign Up" : "Processing..."}
-                  </button>
+                  </span>
                 </div>
                 <p className="rdsgnalready">
                 <Link to="/signin">  Already Registered? Sign In</Link>
