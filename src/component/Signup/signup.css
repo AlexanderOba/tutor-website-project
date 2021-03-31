@@ -12,6 +12,9 @@
     color: #333;
   }
   @media (max-width:760px){
+    .signupheading{
+      width: 85%;
+    }
     .rsignupdiv{
       margin-top: 53px;
     }

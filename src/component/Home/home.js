@@ -32,8 +32,8 @@ const Home=()=>{
                              <span className="heading-primary-descr">Book one on one lessons with verified</span>
                              <span className="heading-primary-descr">tutors in your area</span>
                           </p> 
-                          <Link to="/signup"> <span className="button-blue">Hire a tutor <i class="fa fa-arrow-right"></i></span></Link>
-                          <p className="heading-primary-descr">want to become a Toptutor? <Link to="/signup">Sign up</Link> now </p>
+                          <Link to="/parent_signup"> <span className="button-blue">Hire a tutor <i class="fa fa-arrow-right"></i></span></Link>
+                          <p className="heading-primary-descr">want to become a Toptutor? <Link to="/tutor_signup">Sign up</Link> now </p>
                      </Col>
                  </Row>
               </Container>
