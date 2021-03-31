@@ -271,7 +271,7 @@
   .panelicon{
     padding-top: 36px;
   }
-input[type=radio]{
+.usercategoryrdio{
     display: none;
 }
 .radiobtns{
@@ -317,4 +317,21 @@ input[type=radio]{
  input[type=radio]:checked + .radiobtns>span::before{
   opacity: 1;
 }
-  
+.malerdiolabel{
+  margin-right: 41px;
+}
+.gendradiobtn{
+  margin-right: 9px;
+  cursor: pointer;
+}
+.genderheading{
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+.genderinputdiv{
+  padding-left: 26px;
+  margin-top: 9px;
+}
+.genderinputdiv>label{
+  cursor: pointer;
+}

@@ -25,6 +25,7 @@ const Signup = withRouter(() => {
     successMessage: "",
     errorMessage: "",
     userType: "",
+    gender:"",
     passwordIsOpen: true,
     error: false,
     isLoading: false,
@@ -40,6 +41,7 @@ const Signup = withRouter(() => {
     address,
     lastname,
     userType,
+    gender,
     successMessage,
     errorMessage,
   } = state;
@@ -58,6 +60,7 @@ const Signup = withRouter(() => {
       phone_number: phone_number,
       address: address,
       userType: userType,
+      sex: gender,
     };
     console.log(data);
     //posting data to the api
@@ -119,7 +122,14 @@ const Signup = withRouter(() => {
       userType: e.target.value,
     })
   console.log(userType)
-  }
+  };
+  const genderType = (e) =>{
+    setFormState({
+      ...state,
+      gender: e.target.value,
+    })
+  console.log(gender)
+  };
   const validateForm = (e) => {
     e.preventDefault();
   
@@ -199,6 +209,7 @@ const Signup = withRouter(() => {
       <div className="rdsignup-section ">
         <Container>
         <Row className="rsignuprow">
+          <h1 className="signupheading">Please select either of the Categories</h1>
             <Col md={8} className="paneldshbdselector">
               <Row>
                 <Col md={6} >
@@ -213,6 +224,7 @@ const Signup = withRouter(() => {
                        <div className="panelicon">
                          <input
                           type="radio"
+                          className="usercategoryrdio"
                           value="Parent_Student" 
                           onChange={userCategory}
                           checked={ userType === "Parent_Student" }
@@ -235,6 +247,7 @@ const Signup = withRouter(() => {
                        <div className="panelicon">
                          <input
                           type="radio" 
+                          className="usercategoryrdio"
                           value="Tutor"  
                           onChange={userCategory}
                           checked={userType === "Tutor"}
@@ -324,14 +337,37 @@ const Signup = withRouter(() => {
                     className="form-control rdsignupinput"
                   />
                 </label>
+                <div className="genderinputdiv">
+                  <p className="genderheading">Gender</p>
+                  <label className="malerdiolabel">
+                  <input
+                   type="radio"
+                   value="Male" 
+                   onChange={genderType}
+                   checked={ gender === "Male" } 
+                   className="gendradiobtn"
+                   />
+                    Male
+                  </label>
+                  <label>
+                    <input
+                     type="radio" 
+                     value="Female" 
+                     onChange={genderType}
+                     checked={ gender === "Female" }
+                     className="gendradiobtn"
+                     />
+                     Female
+                  </label>
+                </div>
                 <label>
-                  <span className="rdfrmlbl"> Home Address </span>
+                  <span className="rdfrmlbl"> House Address </span>
                   <input
                     type="text"
                     name="address"
                     value={address}
                     onChange={onChangeHandler}
-                    placeholder="Enter your Home Address"
+                    placeholder="Enter your House Address"
                     size={70}
                     className="form-control rdsignupinput"
                   />

@@ -127,6 +127,7 @@ const Signin = withRouter(() => {
       <div className="rdsignup-section paddit">
         <Container>
           <Row className="rsignuprow">
+          <h1 className="signupheading">Please select either of the Categories</h1>
             <Col md={8} className="paneldshbdselector">
               <Row>
                 <Col md={6} >
@@ -142,6 +143,7 @@ const Signin = withRouter(() => {
                          <input 
                          type="radio"
                          value="Parent_Student" 
+                         className="usercategoryrdio"
                          onChange={userCategory}
                          checked={ userType === "Parent_Student" }
                          />
@@ -164,6 +166,7 @@ const Signin = withRouter(() => {
                          <input
                           type="radio"
                           value="Tutor" 
+                          className="usercategoryrdio"
                           onChange={userCategory}
                           checked={ userType === "Tutor" }
                           />

@@ -23,6 +23,7 @@ const tutorSignup = withRouter(() => {
     successMessage: "",
     errorMessage: "",
     userType: "",
+    gender:"",
     passwordIsOpen: true,
     error: false,
     isLoading: false,
@@ -38,6 +39,7 @@ const tutorSignup = withRouter(() => {
     address,
     lastname,
     userType,
+    gender,
     successMessage,
     errorMessage,
   } = state;
@@ -56,6 +58,7 @@ const tutorSignup = withRouter(() => {
       phone_number: phone_number,
       address: address,
       userType: userType,
+      sex: gender,
     };
     console.log(data);
     //posting data to the api
@@ -118,6 +121,13 @@ const tutorSignup = withRouter(() => {
     })
   console.log(userType)
   }
+  const genderType = (e) =>{
+    setFormState({
+      ...state,
+      gender: e.target.value,
+    })
+  console.log(gender)
+  };
   const validateForm = (e) => {
     e.preventDefault();
   
@@ -277,14 +287,37 @@ const tutorSignup = withRouter(() => {
                     className="form-control rdsignupinput"
                   />
                 </label>
+                <div className="genderinputdiv">
+                  <p className="genderheading">Gender</p>
+                  <label className="malerdiolabel">
+                  <input
+                   type="radio"
+                   value="Male" 
+                   onChange={genderType}
+                   checked={ gender === "Male" } 
+                   className="gendradiobtn"
+                   />
+                    Male
+                  </label>
+                  <label>
+                    <input
+                     type="radio" 
+                     value="Female" 
+                     onChange={genderType}
+                     checked={ gender === "Female" }
+                     className="gendradiobtn"
+                     />
+                     Female
+                  </label>
+                </div>
                 <label>
-                  <span className="rdfrmlbl"> Home Address </span>
+                  <span className="rdfrmlbl"> House Address </span>
                   <input
                     type="text"
                     name="address"
                     value={address}
                     onChange={onChangeHandler}
-                    placeholder="Enter your Home Address"
+                    placeholder="Enter your House Address"
                     size={70}
                     className="form-control rdsignupinput"
                   />
