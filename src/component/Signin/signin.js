@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
-import { Container, Row, Col, Form, Alert } from "react-bootstrap";
+import { Container, Row, Col, Form, Alert, Modal } from "react-bootstrap";
 import Axios from "axios";
 import Header_2 from '../Header_2/header_2';
 import { API } from "../../config";
@@ -8,7 +8,8 @@ import eye from "../../images/eye.png";
 import eyeclose from "../../images/eye-off.png";
 import Footer from "../Footer/footer";
 import guardianimg from "../../images/guardian.png";
-import tutorimg from "../../images/tutoricn.png"
+import tutorimg from "../../images/tutoricn.png";
+import * as EmailValidator from "react-email-validator";
 
 const Signin = withRouter(() => {
   const [state, setState] = useState({
@@ -20,6 +21,7 @@ const Signin = withRouter(() => {
     passwordIsOpen: true,
     userType: "",
     error: false,
+    CreateTaskModalisOpen:true,
   });
   const {
     email,
@@ -30,6 +32,7 @@ const Signin = withRouter(() => {
     errorMessage,
     successMessage,
     isLoading,
+    CreateTaskModalisOpen,
   } = state;
   const sendFormData = () => {
     setState({
@@ -73,6 +76,7 @@ const Signin = withRouter(() => {
           error: true,
         });
       });
+      console.log(data)
   };
   const onChangeHandler = (e) => {
     setState({
@@ -94,7 +98,12 @@ const Signin = withRouter(() => {
       passwordIsOpen: state.passwordIsOpen ? false : true,
     });
   };
-
+  const closeModalCreateTaskModal = () => {
+    setState({
+      ...state,
+      CreateTaskModalisOpen: false,
+    });
+  };
   const validateForm = (e) => {
     e.preventDefault();
     if (email=="" && password == ""){
@@ -109,6 +118,12 @@ const Signin = withRouter(() => {
         errorMessage: "Please enter your email",
       });
     }
+    if(!EmailValidator.validate(email)){
+       return setState({
+         ...state,
+         errorMessage: "please of enter a valid email"
+       })
+    };
     if (password === "") {
       return setState({
         ...state,
@@ -176,11 +191,20 @@ const Signin = withRouter(() => {
                        </div>
                   </label>
                </Col>
+               <Modal show={state.CreateTaskModalisOpen} centered={true} onHide={closeModalCreateTaskModal}>
+                <Modal.Title className="modal_title create_title">Create Task</Modal.Title>
+                <Modal.Body className="create_body">
+                 <div>
+                    Please select a User Type
+                 </div>
+               </Modal.Body>
+              </Modal>
              </Row>
            </Col>
         </Row>
-          <Row className="rsignuprow">
+        <Row className="rsignuprow">
             <Col md={7}>
+              
               <Form className="rdsignupform" onSubmit={validateForm}>
                 <div className="rdsignupfrmdv">
                   <h4 className="sgnfrmhder">Log In</h4>
@@ -217,6 +241,11 @@ const Signin = withRouter(() => {
                     placeholder="Enter your Email Address"
                     size={70}
                     className="form-control rdsignupinput"
+                    onKeyPress={(e) => {
+                      if (e.key === "Enter") {
+                        validateForm(e);
+                      }
+                    }}
                   />
                 </label>
                 <label>

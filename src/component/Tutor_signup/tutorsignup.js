@@ -9,6 +9,7 @@ import eye from "../../images/eye.png";
 import eyeclose from "../../images/eye-off.png";
 import drpdwnarr from "../../images/dwn-arrw.png";
 import Footer from "../Footer/footer";
+import * as EmailValidator from "react-email-validator";
 
 
 const tutorSignup = withRouter(() => {
@@ -157,6 +158,12 @@ const tutorSignup = withRouter(() => {
         errorMessage: "Please enter your email",
       });
     }
+    if(!EmailValidator.validate(email)){
+      return setFormState({
+        ...state,
+        errorMessage: "please of enter a valid email"
+      })
+   };
     if (address == "") {
       return setFormState({
         ...state,
@@ -366,7 +373,7 @@ const tutorSignup = withRouter(() => {
                       className="rdfrmtinptt"
                       value={phone_number}
                       onChange={onChangeHandler}
-                      placeholder="Enter referral code (optional)"
+                      placeholder="Enter your phone number"
                     />
                   </Col>
                   <Col md={6}>

@@ -11,7 +11,8 @@ import eyeclose from "../../images/eye-off.png";
 import drpdwnarr from "../../images/dwn-arrw.png";
 import Footer from "../Footer/footer";
 import guardianimg from "../../images/guardian.png";
-import tutorimg from "../../images/tutoricn.png"
+import tutorimg from "../../images/tutoricn.png";
+import * as EmailValidator from "react-email-validator";
 
 const Signup = withRouter(() => {
   const [state, setFormState] = useState({
@@ -159,6 +160,12 @@ const Signup = withRouter(() => {
         errorMessage: "Please enter your email",
       });
     }
+    if(!EmailValidator.validate(email)){
+      return setFormState({
+        ...state,
+        errorMessage: "please of enter a valid email"
+      })
+   };
     if (address == "") {
       return setFormState({
         ...state,
@@ -416,7 +423,7 @@ const Signup = withRouter(() => {
                       className="rdfrmtinptt"
                       value={phone_number}
                       onChange={onChangeHandler}
-                      placeholder="Enter referral code (optional)"
+                      placeholder="Enter your phone number"
                     />
                   </Col>
                   <Col md={6}>
