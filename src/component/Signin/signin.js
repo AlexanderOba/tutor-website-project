@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { Container, Row, Col, Form, Alert, Modal } from "react-bootstrap";
 import Axios from "axios";
+import "./signin.css";
 import Header_2 from '../Header_2/header_2';
 import { API } from "../../config";
 import eye from "../../images/eye.png";
@@ -100,15 +101,16 @@ const Signin = withRouter(() => {
       passwordIsOpen: state.passwordIsOpen ? false : true,
     });
   };
-  const closeModalCreateTaskModal = () => {
-    setState({
-      ...state,
+   const closeModalCreateTaskModal = () => {
+     setState({
+       ...state,
       CreateTaskModalisOpen: false,
-    });
+   });
   };
+ 
   const validateForm = (e) => {
     e.preventDefault();
-    if (email=="" && password == ""){
+    if (email==="" && password ===""){
       return setState({
         ...state,
         errorMessage: "please enter your details"
@@ -126,18 +128,22 @@ const Signin = withRouter(() => {
          errorMessage: "please of enter a valid email"
        })
     };
-    if (userType == "") {
-      return setState({
-        ...state,
-        errorMessageUserType : "Please select a user Type",
-      });
-    } 
     if (password === "") {
       return setState({
         ...state,
         errorMessage: "Please enter your password",
       });
-    } else {
+    }
+    if (userType === "") {
+      return setState({
+        ...state,
+        CreateTaskModalisOpen: true,
+        errorMessageUserType : "Please select a user Type!!",
+      });
+
+    } 
+
+     else {
       sendFormData();
     }
   };
@@ -200,13 +206,15 @@ const Signin = withRouter(() => {
                   </label>
                </Col>
                {errorMessageUserType && (
-               <Modal show={state.CreateTaskModalisOpen} centered={true} onHide={closeModalCreateTaskModal}>
-                <Modal.Title className="modal_title create_title">Create Task</Modal.Title>
-                <Modal.Body className="create_body">
-                 <div>
-                    {errorMessageUserType }
+               <Modal show={state.CreateTaskModalisOpen}  centered={true} onHide={closeModalCreateTaskModal}>
+                 <div className="usermodaltitle"> 
+                    <i className="fa fa-exclamation fa-rotate-180 exclamicon" aria-hidden="true"></i>
                  </div>
-               </Modal.Body>
+                 <Modal.Body>
+                    <div className="modalmessage">
+                       {errorMessageUserType }
+                    </div>
+                 </Modal.Body>
               </Modal>
                )}
              </Row>
