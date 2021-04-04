@@ -20,6 +20,7 @@ const Signin = withRouter(() => {
     isLoading: false,
     passwordIsOpen: true,
     userType: "",
+    errorMessageUserType:"",
     error: false,
     CreateTaskModalisOpen:true,
   });
@@ -29,6 +30,7 @@ const Signin = withRouter(() => {
     passwordIsOpen,
     error,
     userType,
+    errorMessageUserType,
     errorMessage,
     successMessage,
     isLoading,
@@ -124,6 +126,12 @@ const Signin = withRouter(() => {
          errorMessage: "please of enter a valid email"
        })
     };
+    if (userType == "") {
+      return setState({
+        ...state,
+        errorMessageUserType : "Please select a user Type",
+      });
+    } 
     if (password === "") {
       return setState({
         ...state,
@@ -191,14 +199,16 @@ const Signin = withRouter(() => {
                        </div>
                   </label>
                </Col>
+               {errorMessageUserType && (
                <Modal show={state.CreateTaskModalisOpen} centered={true} onHide={closeModalCreateTaskModal}>
                 <Modal.Title className="modal_title create_title">Create Task</Modal.Title>
                 <Modal.Body className="create_body">
                  <div>
-                    Please select a User Type
+                    {errorMessageUserType }
                  </div>
                </Modal.Body>
               </Modal>
+               )}
              </Row>
            </Col>
         </Row>
