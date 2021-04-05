@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import React, { useState,useEffect,useRef } from "react";
+import { Link, withRouter,useLocation } from "react-router-dom";
 import { Container, Row, Col, Form, Alert, Modal } from "react-bootstrap";
 import Axios from "axios";
 import "./signin.css";
@@ -13,6 +13,16 @@ import tutorimg from "../../images/tutoricn.png";
 import * as EmailValidator from "react-email-validator";
 
 const Signin = withRouter(() => {
+  const fieldRef = useRef(null);
+
+  const pathname= useLocation()
+    useEffect( () => {
+    window.scrollTo(0, 0)
+    // if (email==="" && password ===""){
+    //   fieldRef.current.scrollIntoView();
+    // }
+  }, [pathname])
+
   const [state, setState] = useState({
     email: "",
     password: "",
@@ -107,7 +117,7 @@ const Signin = withRouter(() => {
       CreateTaskModalisOpen: false,
    });
   };
- 
+  
   const validateForm = (e) => {
     e.preventDefault();
     if (email==="" && password ===""){
@@ -129,6 +139,7 @@ const Signin = withRouter(() => {
        })
     };
     if (password === "") {
+    
       return setState({
         ...state,
         errorMessage: "Please enter your password",
@@ -245,6 +256,7 @@ const Signin = withRouter(() => {
                     key={2}
                     variant="danger"
                     className="alertzuccess text-center"
+                    ref={fieldRef}
                   >
                     {errorMessage}
                   </Alert>

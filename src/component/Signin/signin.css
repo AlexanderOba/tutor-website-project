@@ -15,9 +15,13 @@
     font-size: 18px;
     font-weight: 700;
 }
-.modal-content {
-    top: -117px;
-    left: 27px;
-    width: 86%;
+.modal-content{
+    top: -74px;
 }
-
+@media (max-width:760px){
+    .modal-content {
+        top: -117px;
+        left: 27px;
+        width: 86%;
+    }
+}
