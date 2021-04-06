@@ -13,16 +13,7 @@ import tutorimg from "../../images/tutoricn.png";
 import * as EmailValidator from "react-email-validator";
 
 const Signin = withRouter(() => {
-  const fieldRef = useRef(null);
-
-  const pathname= useLocation()
-    useEffect( () => {
-    window.scrollTo(0, 0)
-    // if (email==="" && password ===""){
-    //   fieldRef.current.scrollIntoView();
-    // }
-  }, [pathname])
-
+ 
   const [state, setState] = useState({
     email: "",
     password: "",
@@ -117,6 +108,20 @@ const Signin = withRouter(() => {
       CreateTaskModalisOpen: false,
    });
   };
+  const fieldRef = useRef(null);
+  const usercategoryref = useRef(null);
+    useEffect( () => {
+     if (errorMessage && fieldRef){
+       fieldRef.current.scrollIntoView({
+        behavior: "smooth",
+       });
+    }
+    if (errorMessageUserType && usercategoryref){
+      usercategoryref.current.scrollIntoView({
+        behavior: "smooth",
+      });
+   }
+  }, [errorMessage,errorMessageUserType])
   
   const validateForm = (e) => {
     e.preventDefault();
@@ -139,7 +144,7 @@ const Signin = withRouter(() => {
        })
     };
     if (password === "") {
-    
+
       return setState({
         ...state,
         errorMessage: "Please enter your password",
@@ -151,9 +156,7 @@ const Signin = withRouter(() => {
         CreateTaskModalisOpen: true,
         errorMessageUserType : "Please select a user Type!!",
       });
-
     } 
-
      else {
       sendFormData();
     }
@@ -168,7 +171,7 @@ const Signin = withRouter(() => {
         <Container>
           <Row className="rsignuprow">
           <h1 className="signupheading">Please select either of the Categories</h1>
-            <Col md={8} className="paneldshbdselector">
+            <Col md={8} className="paneldshbdselector" ref={usercategoryref}>
               <Row>
                 <Col md={6} >
                   <label className="guardinsltrdv">
@@ -338,5 +341,4 @@ const Signin = withRouter(() => {
     </div>
   );
 });
-
 export default Signin;

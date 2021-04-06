@@ -24,7 +24,6 @@ const tutorSignup = withRouter(() => {
     successMessage: "",
     errorMessage: "",
     userType: "",
-    errorMessageUserType:"",
     gender:"",
     passwordIsOpen: true,
     error: false,
@@ -41,7 +40,6 @@ const tutorSignup = withRouter(() => {
     address,
     lastname,
     userType,
-    errorMessageUserType,
     gender,
     successMessage,
     errorMessage,
@@ -188,12 +186,6 @@ const tutorSignup = withRouter(() => {
       return setFormState({
         ...state,
         errorMessage: "Please enter your password",
-      });
-    } 
-    if (userType == "") {
-      return setFormState({
-        ...state,
-        errorMessageUserType : "Please select a user Type",
       });
     } 
     if (password.length < 6) {
