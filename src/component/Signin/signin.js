@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { Container, Row, Col, Form, Alert, Modal } from "react-bootstrap";
 import Axios from "axios";
+import "./signin.css";
 import Header_2 from '../Header_2/header_2';
 import { API } from "../../config";
 import eye from "../../images/eye.png";
@@ -12,6 +13,7 @@ import tutorimg from "../../images/tutoricn.png";
 import * as EmailValidator from "react-email-validator";
 
 const Signin = withRouter(() => {
+
   const [state, setState] = useState({
     email: "",
     password: "",
@@ -20,8 +22,9 @@ const Signin = withRouter(() => {
     isLoading: false,
     passwordIsOpen: true,
     userType: "",
+    errorMessageUserType: "",
     error: false,
-    CreateTaskModalisOpen:true,
+    CreateTaskModalisOpen: true,
   });
   const {
     email,
@@ -29,6 +32,7 @@ const Signin = withRouter(() => {
     passwordIsOpen,
     error,
     userType,
+    errorMessageUserType,
     errorMessage,
     successMessage,
     isLoading,
@@ -76,7 +80,7 @@ const Signin = withRouter(() => {
           error: true,
         });
       });
-      console.log(data)
+    console.log(data)
   };
   const onChangeHandler = (e) => {
     setState({
@@ -85,12 +89,11 @@ const Signin = withRouter(() => {
       errorMessage: "",
     });
   };
-  const userCategory = (e) =>{
+  const userCategory = (e) => {
     setState({
       ...state,
       userType: e.target.value,
-    })
-  console.log(userType)
+    });
   }
   const hidePassword = () => {
     setState({
@@ -104,9 +107,24 @@ const Signin = withRouter(() => {
       CreateTaskModalisOpen: false,
     });
   };
+  const fieldRef = useRef();
+  const usercategoryref = useRef();
+  useEffect(() => {
+    if (errorMessageUserType && usercategoryref) {
+      usercategoryref.current.scrollIntoView({
+        behavior: "smooth",
+      });
+    };
+    if (errorMessage && fieldRef) {
+      fieldRef.current.scrollIntoView({
+        behavior: "smooth",
+      });
+    };
+  }, [errorMessage, errorMessageUserType])
+
   const validateForm = (e) => {
     e.preventDefault();
-    if (email=="" && password == ""){
+    if (email === "" && password === "") {
       return setState({
         ...state,
         errorMessage: "please enter your details"
@@ -118,96 +136,109 @@ const Signin = withRouter(() => {
         errorMessage: "Please enter your email",
       });
     }
-    if(!EmailValidator.validate(email)){
-       return setState({
-         ...state,
-         errorMessage: "please of enter a valid email"
-       })
+    if (!EmailValidator.validate(email)) {
+      return setState({
+        ...state,
+        errorMessage: "please of enter a valid email"
+      })
     };
     if (password === "") {
+
       return setState({
         ...state,
         errorMessage: "Please enter your password",
       });
-    } else {
+    }
+    if (userType === "") {
+      return setState({
+        ...state,
+        CreateTaskModalisOpen: true,
+        errorMessageUserType: "Please select a user Type!!",
+      });
+    }
+    else {
       sendFormData();
     }
   };
   return (
     <div>
-       <Header_2 style={{
+      <Header_2 style={{
         boxShadow: "0 0 10px rgb(0 0 0 / 30%)",
         position: "relative"
-      }}/> 
+      }} />
       <div className="rdsignup-section paddit">
         <Container>
           <Row className="rsignuprow">
-          <h1 className="signupheading">Please select either of the Categories</h1>
+            <h1 ref={usercategoryref} className="signupheading">Please select either of the Categories</h1>
             <Col md={8} className="paneldshbdselector">
               <Row>
                 <Col md={6} >
                   <label className="guardinsltrdv">
-                     <span className="panel-img">
-                        <img src={guardianimg}/>
-                     </span>
-                      <div className="paneltext">
-                         <h6>Guardian or Students</h6>
-                         <p>Hi! I need a tutor</p>
-                       </div>
-                       <div className="panelicon">
-                         <input 
-                         type="radio"
-                         value="Parent_Student" 
-                         className="usercategoryrdio"
-                         onChange={userCategory}
-                         checked={ userType === "Parent_Student" }
-                         />
-                         <div className="radiobtns">
-                         <span class="fa fa-check" aria-hidden="true"></span>
-                         </div>
-                       </div>
+                    <span className="panel-img">
+                      <img src={guardianimg} />
+                    </span>
+                    <div className="paneltext">
+                      <h6>Guardian or Students</h6>
+                      <p>Hi! I need a tutor</p>
+                    </div>
+                    <div className="panelicon">
+                      <input
+                        type="radio"
+                        value="Parent_Student"
+                        className="usercategoryrdio"
+                        onChange={userCategory}
+                        checked={userType === "Parent_Student"}
+                      />
+                      <div className="radiobtns">
+                        <span class="fa fa-check" aria-hidden="true"></span>
+                      </div>
+                    </div>
                   </label>
-               </Col>
-               <Col md={6}>
+                </Col>
+                <Col md={6}>
                   <label className="guardinsltrdv">
-                     <span className="panel-img">
-                        <img src={tutorimg}/>
-                     </span>
-                      <div className="paneltext">
-                         <h6>Tutor</h6>
-                         <p>Hi! i'm in need of tuition</p>
-                       </div>
-                       <div className="panelicon">
-                         <input
-                          type="radio"
-                          value="Tutor" 
-                          className="usercategoryrdio"
-                          onChange={userCategory}
-                          checked={ userType === "Tutor" }
-                          />
-                         <div className="radiobtns">
-                         <span class="fa fa-check" aria-hidden="true"></span>
-                         </div>
-                       </div>
+                    <span className="panel-img">
+                      <img src={tutorimg} />
+                    </span>
+                    <div className="paneltext">
+                      <h6>Tutor</h6>
+                      <p>Hi! i'm in need of tuition</p>
+                    </div>
+                    <div className="panelicon">
+                      <input
+                        type="radio"
+                        value="Tutor"
+                        className="usercategoryrdio"
+                        onChange={userCategory}
+                        checked={userType === "Tutor"}
+                      />
+                      <div className="radiobtns">
+                        <span class="fa fa-check" aria-hidden="true"></span>
+                      </div>
+                    </div>
                   </label>
-               </Col>
-               <Modal show={state.CreateTaskModalisOpen} centered={true} onHide={closeModalCreateTaskModal}>
-                <Modal.Title className="modal_title create_title">Create Task</Modal.Title>
-                <Modal.Body className="create_body">
-                 <div>
-                    Please select a User Type
-                 </div>
-               </Modal.Body>
-              </Modal>
-             </Row>
-           </Col>
-        </Row>
-        <Row className="rsignuprow">
+                </Col>
+                {errorMessageUserType && (
+                  <Modal show={state.CreateTaskModalisOpen} centered={true} onHide={closeModalCreateTaskModal}>
+                    <div className="usermodaltitle">
+                      <i className="fa fa-exclamation fa-rotate-180 exclamicon" aria-hidden="true"></i>
+                    </div>
+                    <Modal.Body>
+                      <div className="modalmessage">
+                        {errorMessageUserType}
+                      </div>
+                    </Modal.Body>
+                  </Modal>
+                )}
+              </Row>
+            </Col>
+          </Row>
+          <Row className="rsignuprow">
             <Col md={7}>
-              
+
               <Form className="rdsignupform" onSubmit={validateForm}>
                 <div className="rdsignupfrmdv">
-                  <h4 className="sgnfrmhder">Log In</h4>
+                  <h4 className="sgnfrmhder" ref={fieldRef}>Log In</h4>
                   <div>
                     <div className="sgnupfrmline"></div>
                     <span className="sgnupdescr">(Welcome back)</span>
@@ -227,6 +258,7 @@ const Signin = withRouter(() => {
                     key={2}
                     variant="danger"
                     className="alertzuccess text-center"
+                    
                   >
                     {errorMessage}
                   </Alert>
@@ -258,10 +290,10 @@ const Signin = withRouter(() => {
                     placeholder="Enter your Password"
                     size={75}
                     onKeyPress={(e) => {
-                    if (e.key === "Enter") {
-                      validateForm(e);
-                    }
-                  }}
+                      if (e.key === "Enter") {
+                        validateForm(e);
+                      }
+                    }}
                     className="form-control rdsignupinput"
                   />
                 </label>
@@ -274,13 +306,13 @@ const Signin = withRouter(() => {
                       alt="hideeye"
                     />
                   ) : (
-                    <img
-                      src={eyeclose}
-                      className="hideeye"
-                      onClick={hidePassword}
-                      alt="hideeye"
-                    />
-                  )}
+                      <img
+                        src={eyeclose}
+                        className="hideeye"
+                        onClick={hidePassword}
+                        alt="hideeye"
+                      />
+                    )}
                 </div>
                 <div className="rdsigninp">
                   <p>
@@ -297,16 +329,15 @@ const Signin = withRouter(() => {
                   </span>
                 </div>
                 <p className="rdsgnalready">
-                <Link to="/signup"> Don't have an account?Sign Up</Link>
+                  <Link to="/signup"> Don't have an account?Sign Up</Link>
                 </p>
               </Form>
             </Col>
           </Row>
         </Container>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 });
-
 export default Signin;

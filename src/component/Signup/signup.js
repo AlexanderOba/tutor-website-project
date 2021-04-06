@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import './signup.css';
 import { Link, withRouter } from "react-router-dom";
-import { Container, Row, Col, Form } from "react-bootstrap";
+import { Container, Row, Col, Form, Modal } from "react-bootstrap";
 import axios from "axios";
 import Header_2 from '../Header_2/header_2';
 import { API } from "../../config";
@@ -19,14 +19,15 @@ const Signup = withRouter(() => {
     firstname: "",
     lastname: "",
     email: "",
-    address:"",
+    address: "",
     password: "",
     howYouHeardAboutUs: "",
     phone_number: "",
     successMessage: "",
     errorMessage: "",
+    errorMessageUserType: "",
     userType: "",
-    gender:"",
+    gender: "",
     passwordIsOpen: true,
     error: false,
     isLoading: false,
@@ -42,6 +43,7 @@ const Signup = withRouter(() => {
     address,
     lastname,
     userType,
+    errorMessageUserType,
     gender,
     successMessage,
     errorMessage,
@@ -49,10 +51,10 @@ const Signup = withRouter(() => {
 
   const onSubmit = () => {
     setFormState({
-       ...state,
-       isLoading: true 
+      ...state,
+      isLoading: true
     });
-   const data = {
+    const data = {
       first_name: firstname,
       last_name: lastname,
       email: email,
@@ -117,30 +119,50 @@ const Signup = withRouter(() => {
       howYouHeardAboutUs: e.target.value,
     });
   };
-  const userCategory = (e) =>{
+  const userCategory = (e) => {
     setFormState({
       ...state,
       userType: e.target.value,
     })
-  console.log(userType)
+    console.log(userType)
   };
-  const genderType = (e) =>{
+  const genderType = (e) => {
     setFormState({
       ...state,
       gender: e.target.value,
     })
-  console.log(gender)
+    console.log(gender)
   };
+  const closeModalCreateTaskModal = () => {
+    setFormState({
+      ...state,
+      CreateTaskModalisOpen: false,
+    });
+  };
+  const fieldRef = useRef();
+  const usercategoryref = useRef();
+  useEffect(() => {
+    if (errorMessage && fieldRef) {
+      fieldRef.current.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+    if (errorMessageUserType && usercategoryref) {
+      usercategoryref.current.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  }, [errorMessage, errorMessageUserType])
   const validateForm = (e) => {
     e.preventDefault();
-  
+
     if (firstname == "" && lastname == "" && email == "" && password == "") {
       return setFormState({
         ...state,
         errorMessage: "please enter your details",
       });
     }
-    
+
     if (firstname == "") {
       return setFormState({
         ...state,
@@ -153,19 +175,19 @@ const Signup = withRouter(() => {
         errorMessage: "Please enter your lastname",
       });
     }
- 
+
     if (email == "") {
       return setFormState({
         ...state,
         errorMessage: "Please enter your email",
       });
     }
-    if(!EmailValidator.validate(email)){
+    if (!EmailValidator.validate(email)) {
       return setFormState({
         ...state,
         errorMessage: "please of enter a valid email"
       })
-   };
+    };
     if (address == "") {
       return setFormState({
         ...state,
@@ -189,12 +211,19 @@ const Signup = withRouter(() => {
         ...state,
         errorMessage: "Please enter your password",
       });
-    } 
+    }
     if (password.length < 6) {
       return setFormState({
         ...state,
         errorMessage: "Password must be at least 6 characters long",
         isLoading: false,
+      });
+    }
+    if (userType === "") {
+      return setFormState({
+        ...state,
+        CreateTaskModalisOpen: true,
+        errorMessageUserType: "Please select a user Type!!",
       });
     }
     else {
@@ -212,62 +241,74 @@ const Signup = withRouter(() => {
       <Header_2 style={{
         boxShadow: "0 0 10px rgb(0 0 0 / 30%)",
         position: "relative"
-      }}/>
+      }} />
       <div className="rdsignup-section ">
         <Container>
-        <Row className="rsignuprow">
-          <h1 className="signupheading">Please select either of the Categories</h1>
+          <Row className="rsignuprow">
+            <h1 ref={usercategoryref}  className="signupheading">Please select either of the Categories</h1>
             <Col md={8} className="paneldshbdselector">
               <Row>
                 <Col md={6} >
                   <label className="guardinsltrdv">
-                     <span className="panel-img">
-                        <img src={guardianimg}/>
-                     </span>
-                      <div className="paneltext">
-                         <h6>Guardian or Students</h6>
-                         <p>Hi! I need a tutor</p>
-                       </div>
-                       <div className="panelicon">
-                         <input
-                          type="radio"
-                          className="usercategoryrdio"
-                          value="Parent_Student" 
-                          onChange={userCategory}
-                          checked={ userType === "Parent_Student" }
-                          />
-                         <div className="radiobtns">
-                         <span class="fa fa-check" aria-hidden="true"></span>
-                         </div>
-                       </div>
+                    <span className="panel-img">
+                      <img src={guardianimg} />
+                    </span>
+                    <div className="paneltext">
+                      <h6>Guardian or Students</h6>
+                      <p>Hi! I need a tutor</p>
+                    </div>
+                    <div className="panelicon">
+                      <input
+                        type="radio"
+                        className="usercategoryrdio"
+                        value="Parent_Student"
+                        onChange={userCategory}
+                        checked={userType === "Parent_Student"}
+                      />
+                      <div className="radiobtns">
+                        <span class="fa fa-check" aria-hidden="true"></span>
+                      </div>
+                    </div>
                   </label>
-               </Col>
-               <Col md={6}>
+                </Col>
+                <Col md={6}>
                   <label className="guardinsltrdv">
-                     <span className="panel-img">
-                        <img src={tutorimg}/>
-                     </span>
-                      <div className="paneltext">
-                         <h6>Tutor</h6>
-                         <p>Hi! i'm in need of tuition</p>
-                       </div>
-                       <div className="panelicon">
-                         <input
-                          type="radio" 
-                          className="usercategoryrdio"
-                          value="Tutor"  
-                          onChange={userCategory}
-                          checked={userType === "Tutor"}
-                          />
-                         <div className="radiobtns">
-                         <span class="fa fa-check" aria-hidden="true"></span>
-                         </div>
-                       </div>
+                    <span className="panel-img">
+                      <img src={tutorimg} />
+                    </span>
+                    <div className="paneltext">
+                      <h6>Tutor</h6>
+                      <p>Hi! i'm in need of tuition</p>
+                    </div>
+                    <div className="panelicon">
+                      <input
+                        type="radio"
+                        className="usercategoryrdio"
+                        value="Tutor"
+                        onChange={userCategory}
+                        checked={userType === "Tutor"}
+                      />
+                      <div className="radiobtns">
+                        <span class="fa fa-check" aria-hidden="true"></span>
+                      </div>
+                    </div>
                   </label>
-               </Col>
-             </Row>
-           </Col>
-        </Row>
+                </Col>
+                {errorMessageUserType && (
+                  <Modal show={state.CreateTaskModalisOpen} centered={true} onHide={closeModalCreateTaskModal}>
+                    <div className="usermodaltitle">
+                      <i className="fa fa-exclamation fa-rotate-180 exclamicon" aria-hidden="true"></i>
+                    </div>
+                    <Modal.Body>
+                      <div className="modalmessage">
+                        {errorMessageUserType}
+                      </div>
+                    </Modal.Body>
+                  </Modal>
+                )}
+              </Row>
+            </Col>
+          </Row>
           <Row className="rsignuprow">
             <Col md={12} className="rsignupdiv">
               <p>
@@ -283,9 +324,9 @@ const Signup = withRouter(() => {
               </p>
             </Col>
             <Col md={7}>
-              <Form className="rdsignupform" onSubmit={validateForm}>
+              <Form className="rdsignupform" onSubmit={validateForm} ref={fieldRef}>
                 <div className="rdsignupfrmdv">
-                  <h4 className="sgnfrmhder">Sign Up</h4>
+                  <h4 className="sgnfrmhder" >Sign Up</h4>
                   <div>
                     <div className="sgnupfrmline"></div>
                     <span className="sgnupdescr">(Welcome to Toptutors)</span>
@@ -347,24 +388,24 @@ const Signup = withRouter(() => {
                 <div className="genderinputdiv">
                   <p className="genderheading">Gender</p>
                   <label className="malerdiolabel">
-                  <input
-                   type="radio"
-                   value="Male" 
-                   onChange={genderType}
-                   checked={ gender === "Male" } 
-                   className="gendradiobtn"
-                   />
+                    <input
+                      type="radio"
+                      value="Male"
+                      onChange={genderType}
+                      checked={gender === "Male"}
+                      className="gendradiobtn"
+                    />
                     Male
                   </label>
                   <label>
                     <input
-                     type="radio" 
-                     value="Female" 
-                     onChange={genderType}
-                     checked={ gender === "Female" }
-                     className="gendradiobtn"
-                     />
-                     Female
+                      type="radio"
+                      value="Female"
+                      onChange={genderType}
+                      checked={gender === "Female"}
+                      className="gendradiobtn"
+                    />
+                    Female
                   </label>
                 </div>
                 <label>
@@ -400,13 +441,13 @@ const Signup = withRouter(() => {
                       alt="hideeye"
                     />
                   ) : (
-                    <img
-                      src={eyeclose}
-                      className="hideeye"
-                      onClick={hidePassword}
-                      alt="hideeye"
-                    />
-                  )}
+                      <img
+                        src={eyeclose}
+                        className="hideeye"
+                        onClick={hidePassword}
+                        alt="hideeye"
+                      />
+                    )}
                 </div>
                 <p className="redsgnfrmpar">
                   Your password must be at least 6 characters long and must
@@ -476,14 +517,14 @@ const Signup = withRouter(() => {
                   </span>
                 </div>
                 <p className="rdsgnalready">
-                <Link to="/signin">  Already Registered? Sign In</Link>
+                  <Link to="/signin">  Already Registered? Sign In</Link>
                 </p>
               </Form>
             </Col>
           </Row>
         </Container>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 });

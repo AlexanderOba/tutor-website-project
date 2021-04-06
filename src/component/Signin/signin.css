@@ -1,0 +1,27 @@
+.exclamicon{
+    text-align: center;
+    border-radius: 100%;
+    padding: 15px 28px;
+    font-size: 38px;
+    border: 2px solid #9de0f6;
+    color: #3fc3ee;
+}
+.usermodaltitle{
+    text-align: center;
+    padding-top: 20px;
+}
+.modalmessage{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+.modal-content{
+    top: -74px;
+}
+@media (max-width:760px){
+    .modal-content {
+        top: -117px;
+        left: 27px;
+        width: 86%;
+    }
+}
