@@ -233,12 +233,12 @@ const Signin = withRouter(() => {
               </Row>
             </Col>
           </Row>
-          <Row className="rsignuprow">
+          <Row className="rsignuprow" ref={fieldRef}>
             <Col md={7}>
 
               <Form className="rdsignupform" onSubmit={validateForm}>
                 <div className="rdsignupfrmdv">
-                  <h4 className="sgnfrmhder" ref={fieldRef}>Log In</h4>
+                  <h4 className="sgnfrmhder" >Log In</h4>
                   <div>
                     <div className="sgnupfrmline"></div>
                     <span className="sgnupdescr">(Welcome back)</span>
@@ -257,7 +257,7 @@ const Signin = withRouter(() => {
                   <Alert
                     key={2}
                     variant="danger"
-                    className="alertzuccess text-center"
+                    className="alertzuccess text-center"               
                     
                   >
                     {errorMessage}
