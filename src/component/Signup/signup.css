@@ -320,9 +320,45 @@
 .malerdiolabel{
   margin-right: 41px;
 }
+.genderdivwrapper{
+  display: flex;
+  align-items: center;
+}
+.genderdivwrapper>p{
+  margin-bottom: 0px;
+}
 .gendradiobtn{
+  display: none;
   margin-right: 9px;
   cursor: pointer;
+}
+.maleradiobtn{
+  display: inline-block;
+  margin-right: 6px;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #3965ff;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 2px;
+  box-sizing: border-box;
+}
+.maleradiobtn::after{
+  content: "";
+  position: relative;
+  font-size: 13px;
+  top: 0px;
+  left: 0px;
+  display: block;
+  background-color: #0675c1;
+  width: 100%;
+  height: 100%;
+  transform: scale(0);
+  transition: .2s;
+  border-radius: 50%;
+}
+input[type="radio"]:checked + .maleradiobtn::after{
+  transform: scale(1);
 }
 .genderheading{
   font-size: 14px;

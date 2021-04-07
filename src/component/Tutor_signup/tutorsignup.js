@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import axios from "axios";
@@ -129,6 +129,14 @@ const tutorSignup = withRouter(() => {
     })
   console.log(gender)
   };
+  const fieldRef = useRef();
+  useEffect(() => {
+    if (errorMessage && fieldRef) {
+      fieldRef.current.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+  }, [errorMessage]);
   const validateForm = (e) => {
     e.preventDefault();
   
@@ -188,6 +196,12 @@ const tutorSignup = withRouter(() => {
         errorMessage: "Please enter your password",
       });
     } 
+    if (gender == "") {
+      return setFormState({
+        ...state,
+        errorMessage: "Please enter your gender"
+      });
+    }
     if (password.length < 6) {
       return setFormState({
         ...state,
@@ -233,7 +247,7 @@ const tutorSignup = withRouter(() => {
                <img src={signupimg} className="signupimg img-fluid"/>
             </Col> */}
             <Col md={7}>
-              <Form className="rdsignupform" onSubmit={validateForm}>
+              <Form className="rdsignupform" onSubmit={validateForm} ref={fieldRef}>
                 <div className="rdsignupfrmdv">
                   <h4 className="sgnfrmhder">Sign Up</h4>
                   <div>
@@ -295,26 +309,32 @@ const tutorSignup = withRouter(() => {
                   />
                 </label>
                 <div className="genderinputdiv">
-                  <p className="genderheading">Gender</p>
+                  <p className="genderheading">Gender :</p>
                   <label className="malerdiolabel">
-                  <input
-                   type="radio"
-                   value="Male" 
-                   onChange={genderType}
-                   checked={ gender === "Male" } 
-                   className="gendradiobtn"
-                   />
-                    Male
+                    <div className="genderdivwrapper">
+                      <input
+                        type="radio"
+                        value="Male"
+                        onChange={genderType}
+                        checked={gender === "Male"}
+                        className="gendradiobtn"
+                      />
+                      <span className="maleradiobtn"></span>
+                      <p>Male</p>
+                    </div>
                   </label>
                   <label>
-                    <input
-                     type="radio" 
-                     value="Female" 
-                     onChange={genderType}
-                     checked={ gender === "Female" }
-                     className="gendradiobtn"
-                     />
-                     Female
+                    <div className="genderdivwrapper">
+                      <input
+                        type="radio"
+                        value="Female"
+                        onChange={genderType}
+                        checked={gender === "Female"}
+                        className="gendradiobtn"
+                      />
+                      <span className="maleradiobtn"></span>
+                      <p>Female</p>
+                    </div>
                   </label>
                 </div>
                 <label>

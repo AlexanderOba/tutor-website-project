@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import './signup.css';
+import "./signup.css";
 import { Link, withRouter } from "react-router-dom";
 import { Container, Row, Col, Form, Modal } from "react-bootstrap";
 import axios from "axios";
-import Header_2 from '../Header_2/header_2';
+import Header_2 from "../Header_2/header_2";
 import { API } from "../../config";
 import Alert from "react-bootstrap/Alert";
 import eye from "../../images/eye.png";
@@ -30,7 +30,7 @@ const Signup = withRouter(() => {
     gender: "",
     passwordIsOpen: true,
     error: false,
-    isLoading: false,
+    isLoading: false
   });
   const {
     firstname,
@@ -46,7 +46,7 @@ const Signup = withRouter(() => {
     errorMessageUserType,
     gender,
     successMessage,
-    errorMessage,
+    errorMessage
   } = state;
 
   const onSubmit = () => {
@@ -63,13 +63,13 @@ const Signup = withRouter(() => {
       phone_number: phone_number,
       address: address,
       userType: userType,
-      sex: gender,
+      sex: gender
     };
     console.log(data);
     //posting data to the api
     axios
       .post(`${API}/parent/signup/`, data)
-      .then((response) => {
+      .then(response => {
         console.log(response);
         if (response.status === 200) {
           // localStorage.setItem("userEmail", JSON.stringify(email));
@@ -82,61 +82,60 @@ const Signup = withRouter(() => {
             errorMessage: "",
             successMessage: response.data.message,
             isLoading: false,
-            error: true,
+            error: true
           });
         }
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error.response);
         if (error && error.response && error.response.data) {
           return setFormState({
             ...state,
             // errorMessage: error?.response?.data[0].message,
             isLoading: false,
-            error: true,
+            error: true
           });
         }
         setFormState({
           ...state,
           errorMessage: "signup failed, check your internet connection",
           isLoading: false,
-          error: true,
+          error: true
         });
       }, []);
-
-  }
-  const onChangeHandler = (e) => {
+  };
+  const onChangeHandler = e => {
     setFormState({
       ...state,
       [e.target.name]: e.target.value,
       errorMessage: "",
-      successMessage: "",
+      successMessage: ""
     });
   };
-  const formActionHandler = (e) => {
+  const formActionHandler = e => {
     setFormState({
       ...state,
-      howYouHeardAboutUs: e.target.value,
+      howYouHeardAboutUs: e.target.value
     });
   };
-  const userCategory = (e) => {
+  const userCategory = e => {
     setFormState({
       ...state,
-      userType: e.target.value,
-    })
-    console.log(userType)
+      userType: e.target.value
+    });
+    console.log(userType);
   };
-  const genderType = (e) => {
+  const genderType = e => {
     setFormState({
       ...state,
-      gender: e.target.value,
-    })
-    console.log(gender)
+      gender: e.target.value
+    });
+    console.log(gender);
   };
   const closeModalCreateTaskModal = () => {
     setFormState({
       ...state,
-      CreateTaskModalisOpen: false,
+      CreateTaskModalisOpen: false
     });
   };
   const fieldRef = useRef();
@@ -144,111 +143,120 @@ const Signup = withRouter(() => {
   useEffect(() => {
     if (errorMessage && fieldRef) {
       fieldRef.current.scrollIntoView({
-        behavior: "smooth",
+        behavior: "smooth"
       });
     }
     if (errorMessageUserType && usercategoryref) {
       usercategoryref.current.scrollIntoView({
-        behavior: "smooth",
+        behavior: "smooth"
       });
     }
-  }, [errorMessage, errorMessageUserType])
-  const validateForm = (e) => {
+  }, [errorMessage, errorMessageUserType]);
+  const validateForm = e => {
     e.preventDefault();
 
     if (firstname == "" && lastname == "" && email == "" && password == "") {
       return setFormState({
         ...state,
-        errorMessage: "please enter your details",
+        errorMessage: "please enter your details"
       });
     }
 
     if (firstname == "") {
       return setFormState({
         ...state,
-        errorMessage: "Please enter your first name",
+        errorMessage: "Please enter your first name"
       });
     }
     if (lastname == "") {
       return setFormState({
         ...state,
-        errorMessage: "Please enter your lastname",
+        errorMessage: "Please enter your lastname"
       });
     }
 
     if (email == "") {
       return setFormState({
         ...state,
-        errorMessage: "Please enter your email",
+        errorMessage: "Please enter your email"
       });
     }
     if (!EmailValidator.validate(email)) {
       return setFormState({
         ...state,
         errorMessage: "please of enter a valid email"
-      })
-    };
+      });
+    }
     if (address == "") {
       return setFormState({
         ...state,
-        errorMessage: "Please enter home address",
+        errorMessage: "Please enter home address"
+      });
+    }
+    if (gender == "") {
+      return setFormState({
+        ...state,
+        errorMessage: "Please enter your gender"
       });
     }
     if (howYouHeardAboutUs == "") {
       return setFormState({
         ...state,
-        errorMessage: "Please enter you heard about us",
+        errorMessage: "Please enter you heard about us"
       });
     }
     if (phone_number == "") {
       return setFormState({
         ...state,
-        errorMessage: "Please enter your phone number",
+        errorMessage: "Please enter your phone number"
       });
     }
     if (password == "") {
       return setFormState({
         ...state,
-        errorMessage: "Please enter your password",
+        errorMessage: "Please enter your password"
       });
     }
     if (password.length < 6) {
       return setFormState({
         ...state,
         errorMessage: "Password must be at least 6 characters long",
-        isLoading: false,
+        isLoading: false
       });
     }
     if (userType === "") {
       return setFormState({
         ...state,
         CreateTaskModalisOpen: true,
-        errorMessageUserType: "Please select a user Type!!",
+        errorMessageUserType: "Please select a user Type!!"
       });
-    }
-    else {
+    } else {
       onSubmit();
     }
   };
   const hidePassword = () => {
     setFormState({
       ...state,
-      passwordIsOpen: state.passwordIsOpen ? false : true,
+      passwordIsOpen: state.passwordIsOpen ? false : true
     });
   };
   return (
     <div>
-      <Header_2 style={{
-        boxShadow: "0 0 10px rgb(0 0 0 / 30%)",
-        position: "relative"
-      }} />
+      <Header_2
+        style={{
+          boxShadow: "0 0 10px rgb(0 0 0 / 30%)",
+          position: "relative"
+        }}
+      />
       <div className="rdsignup-section ">
         <Container>
           <Row className="rsignuprow">
-            <h1 ref={usercategoryref}  className="signupheading">Please select either of the Categories</h1>
+            <h1 ref={usercategoryref} className="signupheading">
+              Please select either of the Categories
+            </h1>
             <Col md={8} className="paneldshbdselector">
               <Row>
-                <Col md={6} >
+                <Col md={6}>
                   <label className="guardinsltrdv">
                     <span className="panel-img">
                       <img src={guardianimg} />
@@ -295,14 +303,19 @@ const Signup = withRouter(() => {
                   </label>
                 </Col>
                 {errorMessageUserType && (
-                  <Modal show={state.CreateTaskModalisOpen} centered={true} onHide={closeModalCreateTaskModal}>
+                  <Modal
+                    show={state.CreateTaskModalisOpen}
+                    centered={true}
+                    onHide={closeModalCreateTaskModal}
+                  >
                     <div className="usermodaltitle">
-                      <i className="fa fa-exclamation fa-rotate-180 exclamicon" aria-hidden="true"></i>
+                      <i
+                        className="fa fa-exclamation fa-rotate-180 exclamicon"
+                        aria-hidden="true"
+                      ></i>
                     </div>
                     <Modal.Body>
-                      <div className="modalmessage">
-                        {errorMessageUserType}
-                      </div>
+                      <div className="modalmessage">{errorMessageUserType}</div>
                     </Modal.Body>
                   </Modal>
                 )}
@@ -314,19 +327,28 @@ const Signup = withRouter(() => {
               <p>
                 Registering to this website, you accept our
                 <span className="t_plinkspn">
-                  <Link to="/terms&conditions" target="_blank"> Terms of Use </Link>{" "}
+                  <Link to="/terms&conditions" target="_blank">
+                    {" "}
+                    Terms of Use{" "}
+                  </Link>{" "}
                 </span>{" "}
                 and our
                 <span className="t_plinkspn">
                   {" "}
-                  <Link to="/privacy_policy" target="_blank">Privacy Policy</Link>{" "}
+                  <Link to="/privacy_policy" target="_blank">
+                    Privacy Policy
+                  </Link>{" "}
                 </span>
               </p>
             </Col>
             <Col md={7}>
-              <Form className="rdsignupform" onSubmit={validateForm} ref={fieldRef}>
+              <Form
+                className="rdsignupform"
+                onSubmit={validateForm}
+                ref={fieldRef}
+              >
                 <div className="rdsignupfrmdv">
-                  <h4 className="sgnfrmhder" >Sign Up</h4>
+                  <h4 className="sgnfrmhder">Sign Up</h4>
                   <div>
                     <div className="sgnupfrmline"></div>
                     <span className="sgnupdescr">(Welcome to Toptutors)</span>
@@ -386,26 +408,32 @@ const Signup = withRouter(() => {
                   />
                 </label>
                 <div className="genderinputdiv">
-                  <p className="genderheading">Gender</p>
+                  <p className="genderheading">Gender :</p>
                   <label className="malerdiolabel">
-                    <input
-                      type="radio"
-                      value="Male"
-                      onChange={genderType}
-                      checked={gender === "Male"}
-                      className="gendradiobtn"
-                    />
-                    Male
+                    <div className="genderdivwrapper">
+                      <input
+                        type="radio"
+                        value="Male"
+                        onChange={genderType}
+                        checked={gender === "Male"}
+                        className="gendradiobtn"
+                      />
+                      <span className="maleradiobtn"></span>
+                      <p>Male</p>
+                    </div>
                   </label>
                   <label>
-                    <input
-                      type="radio"
-                      value="Female"
-                      onChange={genderType}
-                      checked={gender === "Female"}
-                      className="gendradiobtn"
-                    />
-                    Female
+                    <div className="genderdivwrapper">
+                      <input
+                        type="radio"
+                        value="Female"
+                        onChange={genderType}
+                        checked={gender === "Female"}
+                        className="gendradiobtn"
+                      />
+                      <span className="maleradiobtn"></span>
+                      <p>Female</p>
+                    </div>
                   </label>
                 </div>
                 <label>
@@ -441,13 +469,13 @@ const Signup = withRouter(() => {
                       alt="hideeye"
                     />
                   ) : (
-                      <img
-                        src={eyeclose}
-                        className="hideeye"
-                        onClick={hidePassword}
-                        alt="hideeye"
-                      />
-                    )}
+                    <img
+                      src={eyeclose}
+                      className="hideeye"
+                      onClick={hidePassword}
+                      alt="hideeye"
+                    />
+                  )}
                 </div>
                 <p className="redsgnfrmpar">
                   Your password must be at least 6 characters long and must
@@ -517,7 +545,7 @@ const Signup = withRouter(() => {
                   </span>
                 </div>
                 <p className="rdsgnalready">
-                  <Link to="/signin">  Already Registered? Sign In</Link>
+                  <Link to="/signin"> Already Registered? Sign In</Link>
                 </p>
               </Form>
             </Col>
