@@ -141,13 +141,13 @@ const Signup = withRouter(() => {
   const fieldRef = useRef();
   const usercategoryref = useRef();
   useEffect(() => {
-    if (errorMessage && fieldRef) {
-      fieldRef.current.scrollIntoView({
+    if (errorMessageUserType && usercategoryref) {
+      usercategoryref.current.scrollIntoView({
         behavior: "smooth"
       });
     }
-    if (errorMessageUserType && usercategoryref) {
-      usercategoryref.current.scrollIntoView({
+    if (errorMessage && fieldRef) {
+      fieldRef.current.scrollIntoView({
         behavior: "smooth"
       });
     }

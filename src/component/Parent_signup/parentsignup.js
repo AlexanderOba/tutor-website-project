@@ -230,7 +230,7 @@ const parentSignup = withRouter(() => {
 
           <Row className="rsignuprow">
             <Col md={12} className="rsignupdiv">
-              <h1 className="signupheading">Register as a Guardian/Student</h1>
+              <h1 className="signupheading-parent_tutor">Register as a Guardian/Student</h1>
               <p>
                 Registering to this website, you accept our
                 <span className="t_plinkspn">
