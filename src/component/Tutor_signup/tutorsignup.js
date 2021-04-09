@@ -115,13 +115,6 @@ const tutorSignup = withRouter(() => {
       howYouHeardAboutUs: e.target.value,
     });
   };
-  const userCategory = (e) =>{
-    setFormState({
-      ...state,
-      userType: e.target.value,
-    })
-  console.log(userType)
-  }
   const genderType = (e) =>{
     setFormState({
       ...state,

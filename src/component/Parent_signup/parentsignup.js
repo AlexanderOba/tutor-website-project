@@ -10,7 +10,6 @@ import eye from "../../images/eye.png";
 import eyeclose from "../../images/eye-off.png";
 import drpdwnarr from "../../images/dwn-arrw.png";
 import Footer from "../Footer/footer";
-import signupimg from "../../images/signupTutor.png";
 import * as EmailValidator from "react-email-validator";
 
 const parentSignup = withRouter(() => {
@@ -115,13 +114,6 @@ const parentSignup = withRouter(() => {
       ...state,
       howYouHeardAboutUs: e.target.value,
     });
-  };
-  const userCategory = (e) =>{
-    setFormState({
-      ...state,
-      userType: e.target.value,
-    })
-  console.log(userType)
   };
   const genderType = (e) =>{
     setFormState({
