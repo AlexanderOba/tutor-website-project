@@ -141,13 +141,13 @@ const Signup = withRouter(() => {
   const fieldRef = useRef();
   const usercategoryref = useRef();
   useEffect(() => {
-    if (errorMessageUserType && usercategoryref) {
-      usercategoryref.current.scrollIntoView({
+    if (errorMessage && fieldRef) {
+      fieldRef.current.scrollIntoView({
         behavior: "smooth"
       });
     }
-    if (errorMessage && fieldRef) {
-      fieldRef.current.scrollIntoView({
+    if (errorMessageUserType && usercategoryref) {
+      usercategoryref.current.scrollIntoView({
         behavior: "smooth"
       });
     }
@@ -193,7 +193,7 @@ const Signup = withRouter(() => {
         errorMessage: "Please enter home address"
       });
     }
-    if (gender == "") {
+    if (gender === "") {
       return setFormState({
         ...state,
         errorMessage: "Please enter your gender"
@@ -424,15 +424,15 @@ const Signup = withRouter(() => {
                   </label>
                   <label>
                     <div className="genderdivwrapper">
-                      <input
-                        type="radio"
-                        value="Female"
-                        onChange={genderType}
-                        checked={gender === "Female"}
-                        className="gendradiobtn"
-                      />
-                      <span className="maleradiobtn"></span>
-                      <p>Female</p>
+                    <input
+                      type="radio"
+                      value="Female"
+                      onChange={genderType}
+                      checked={gender === "Female"}
+                      className="gendradiobtn"
+                    />
+                    <span className="maleradiobtn"></span>
+                   <p>Female</p>
                     </div>
                   </label>
                 </div>

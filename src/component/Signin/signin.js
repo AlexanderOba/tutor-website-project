@@ -110,6 +110,7 @@ const Signin = withRouter(() => {
   const fieldRef = useRef();
   const usercategoryref = useRef();
   useEffect(() => {
+   
     if (errorMessageUserType && usercategoryref) {
       usercategoryref.current.scrollIntoView({
         behavior: "smooth",

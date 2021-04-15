@@ -10,6 +10,7 @@ import eye from "../../images/eye.png";
 import eyeclose from "../../images/eye-off.png";
 import drpdwnarr from "../../images/dwn-arrw.png";
 import Footer from "../Footer/footer";
+import signupimg from "../../images/signupTutor.png";
 import * as EmailValidator from "react-email-validator";
 
 const parentSignup = withRouter(() => {
@@ -119,7 +120,7 @@ const parentSignup = withRouter(() => {
     setFormState({
       ...state,
       gender: e.target.value,
-    });
+    })
   };
   const fieldRef = useRef();
   useEffect(() => {
@@ -164,16 +165,16 @@ const parentSignup = withRouter(() => {
         errorMessage: "please of enter a valid email"
       })
    };
-   if (gender == "") {
-    return setFormState({
-      ...state,
-      errorMessage: "Please enter your gender"
-    });
-  }
     if (address == "") {
       return setFormState({
         ...state,
         errorMessage: "Please enter home address",
+      });
+    }
+    if (gender === "") {
+      return setFormState({
+        ...state,
+        errorMessage: "Please enter your gender"
       });
     }
     if (howYouHeardAboutUs == "") {
@@ -222,7 +223,7 @@ const parentSignup = withRouter(() => {
 
           <Row className="rsignuprow">
             <Col md={12} className="rsignupdiv">
-              <h1 className="signupheading-parent_tutor">Register as a Guardian/Student</h1>
+              <h1 className="signupheading">Register as a Guardian/Student</h1>
               <p>
                 Registering to this website, you accept our
                 <span className="t_plinkspn">
@@ -303,34 +304,30 @@ const parentSignup = withRouter(() => {
                 <div className="genderinputdiv">
                   <p className="genderheading">Gender :</p>
                   <label className="malerdiolabel">
-                    <div className="genderdivwrapper">
-                      <input
-                        type="radio"
-                        value="Male"
-                        onChange={genderType}
-                        checked={gender === "Male"}
-                        className="gendradiobtn"
-                      />
-                      <span className="maleradiobtn"></span>
-                      <p>Male</p>
-                    </div>
+                  <input
+                   type="radio"
+                   value="Male" 
+                   onChange={genderType}
+                   checked={ gender === "Male" } 
+                   className="gendradiobtn"
+                   />
+                    <span className="maleradiobtn"></span>
+                    Male
                   </label>
                   <label>
-                    <div className="genderdivwrapper">
-                      <input
-                        type="radio"
-                        value="Female"
-                        onChange={genderType}
-                        checked={gender === "Female"}
-                        className="gendradiobtn"
-                      />
+                    <input
+                     type="radio" 
+                     value="Female" 
+                     onChange={genderType}
+                     checked={ gender === "Female" }
+                     className="gendradiobtn"
+                     />
                       <span className="maleradiobtn"></span>
-                      <p>Female</p>
-                    </div>
+                     Female
                   </label>
                 </div>
                 <label>
-                  <span className="rdfrmlbl"> House Address </span>
+                  <span className="rdfrmlbl"> House Address</span>
                   <input
                     type="text"
                     name="address"
