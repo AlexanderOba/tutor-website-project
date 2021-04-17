@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link,NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Ul = styled.ul`
@@ -38,6 +38,7 @@ const Ul = styled.ul`
 const Navlist=({open})=>{
     return(
             <Ul open={open}>
+                   <li> <NavLink to="/" className="navlinks" activeStyle={{fontWeight: "700"}}>Home</NavLink> </li>
                    <li> <Link  className="navlinks" to="/aboutus">About Us</Link> </li> 
                    <li> <Link to="#" className="navlinks">Job Board</Link> </li>
                    <li> <Link to="/signin" className="navlinks">Sign in</Link> </li>
