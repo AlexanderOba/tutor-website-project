@@ -8,6 +8,7 @@ import tutorSignup from './component/Tutor_signup/tutorsignup';
 import Signin from './component/Signin/signin';
 import About from './component/AboutUs/about';
 import Layout from './HOCs/layout';
+import parentDashboard from './component/Parent_dashboard/parent_dashboard';
 
 class Routes extends Component{
     render(){
@@ -16,6 +17,7 @@ class Routes extends Component{
             <Layout>
                 <Switch>
                     <Route   path ="/signup" component={Signup}/>
+                    <Route   path ="/parent_dashboard" component={parentDashboard}/>
                     <Route   path ="/parent_signup" component={parentSignup}/>
                     <Route   path ="/tutor_signup" component={tutorSignup}/>
                     <Route   path ="/signin" component={Signin}/>

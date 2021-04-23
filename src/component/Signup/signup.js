@@ -102,6 +102,7 @@ const Signup = withRouter(() => {
           isLoading: false,
           error: true
         });
+        
       }, []);
   };
   const onChangeHandler = e => {
@@ -141,6 +142,7 @@ const Signup = withRouter(() => {
   const fieldRef = useRef();
   const usercategoryref = useRef();
   useEffect(() => {
+   
     if (errorMessage && fieldRef) {
       fieldRef.current.scrollIntoView({
         behavior: "smooth"
@@ -248,7 +250,7 @@ const Signup = withRouter(() => {
           position: "relative"
         }}
       />
-      <div className="rdsignup-section ">
+      <div className="rdsignup-section paddit">
         <Container>
           <Row className="rsignuprow">
             <h1 ref={usercategoryref} className="signupheading">

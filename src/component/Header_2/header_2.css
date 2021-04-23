@@ -80,7 +80,7 @@ nav{
 }
  nav{
   display: flex;
-  position: fixed;
+  position: fixed !important;
   background-color: #0675c1;
   justify-content: space-around;
   align-items: center;

@@ -1,0 +1,67 @@
+.sidenav {
+    background-color: #f7f7f7;
+    color: #333;
+    padding-top: 30px;
+  }
+  .sidenav-content{
+    text-align: center;
+  }
+  .sidenavpaddin{
+    padding: 0px 17px;
+  }
+.userInfo-section{
+  display: flex;
+  background-color: #ffffff;
+  justify-content: space-evenly;
+  padding: 11px;
+  border-radius: 4px;
+}
+.acctgglediv{
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.acctgglediv>h4{
+  margin-bottom: 4px;
+  font-size: 18px;
+  color: #333333;
+}
+.initials-tag{
+  padding-top: 10px;
+  font-weight: 700;
+}
+.initials-tag>span{
+  color: #2e6af0;
+  background: rgba(46, 106, 240, 0.1);
+  padding: 7px;
+  border-radius: 35px;
+  font-size: 14px
+}
+.acccollapsediv{
+  background-color: #ffffff;
+}
+.editprofdiv{
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  padding-bottom: 5px;
+}
+.edittag{
+    width: 83px;
+    margin-left: 1rem;
+    display: inline-block;
+    cursor: pointer;
+}
+.logouttag{
+  width: 35%;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.card-header{
+  padding: 0;
+  border-bottom: none;
+}
+.userprofileacc{
+  margin-bottom: 45px;
+  box-shadow: 0 0 10px 0 rgb(6 117 193 / 16%);
+}
