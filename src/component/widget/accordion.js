@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Card } from "react-bootstrap";
+import arrdown from '../../images/arrow-down.png';
 
 const Accordion = () => {
   const [state, setState] = useState({
@@ -21,7 +21,6 @@ const Accordion = () => {
   return (
     <div>
       <div className="userprofileacc">
-        <div as={Card.Header}>
           <div className="userInfo-section">
             <div class="initials-tag">
               <span>DA</span>
@@ -33,13 +32,13 @@ const Accordion = () => {
               <div className="acctgglediv">
                 <h4>Toptutors</h4>
                 <div>
-                  <span className={`fa fa-chevron-down arrow-down ${chevron}`}></span>
+                  {/* <span className={`fa fa-chevron-down arrow-down ${chevron}`}></span> */}
+                  <img src={arrdown}  className={`fa fa-chevron-down arrow-down ${chevron}`}/>
                 </div>
               </div>
               <p className="username">David Armstrong - Admin</p>
             </div>
           </div>
-        </div>
         <div
           className="acccollapsediv"
           style={{ maxHeight: `${collapseHeight}` }}

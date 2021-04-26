@@ -1,5 +1,5 @@
 .sidenav {
-    background-color: #f7f7f7;
+    background-color: #fff;
     color: #333;
     padding-top: 30px;
   }
@@ -23,6 +23,7 @@
 }
 .username{
   font-size: 14px;
+  cursor: pointer;
 }
 .acctgglediv>h4{
   margin-bottom: 4px;
@@ -51,6 +52,9 @@
   align-items: baseline;
   padding-bottom: 5px;
 }
+.editprofdiv:hover{
+  color:  #0675c1;
+}
 .edittag{
     width: 83px;
     margin-left: 1rem;
@@ -62,10 +66,6 @@
   width: 35%;
   text-align: center;
   margin-bottom: 5px;
-}
-.card-header{
-  padding: 0;
-  border-bottom: none;
 }
 .userprofileacc{
   margin-bottom: 45px;
@@ -81,4 +81,26 @@
   color: #70757a;
   font-size: 14px;
   transition: .4s ease;
+}
+.dashboard-content{
+  background-color: #f2f5fc;
+  padding-bottom: 260px;
+}
+.sidenavdemarcation{
+  border: 1px solid #f2f5fc;
+  margin: 28px 0px;
+}
+.sidenavlinkdiv{
+  padding: 7px 10px 7px 45px;
+  margin-bottom: 12px;
+  transition: all .2s;
+}
+.sidenavlinkdiv:hover{
+  background-color: #0675c1;
+  color: #fff;
+  border-radius: 5px;
+  cursor:pointer;
+}
+.sidenavicons{
+  margin-right: 25px; 
 }
