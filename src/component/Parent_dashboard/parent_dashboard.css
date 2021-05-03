@@ -68,7 +68,7 @@
   margin-bottom: 5px;
 }
 .userprofileacc{
-  margin-bottom: 45px;
+  margin-bottom: 65px;
   box-shadow: 0px 2px 8px rgb(3 50 154 / 10%);
 }
 .arrow-down{
@@ -84,7 +84,7 @@
 }
 .dashboard-content{
   background-color: #f2f5fc;
-  padding-bottom: 260px;
+  padding: 0px 27px;
 }
 .sidenavdemarcation{
   border: 1px solid #f2f5fc;
@@ -93,7 +93,8 @@
 .sidenavlinkdiv{
   padding: 7px 10px 7px 45px;
   margin-bottom: 12px;
-  transition: all .2s;
+  transition: all .2s ease;
+ text-decoration: none;
 }
 .sidenavlinkdiv:hover{
   background-color: #0675c1;
@@ -103,4 +104,162 @@
 }
 .sidenavicons{
   margin-right: 25px; 
+}
+.user-imgdisplaydv{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.userimgspan{
+  display: inline-block;
+  border: 3px solid #ececec;
+  background: #ececec;
+  height: 61px;
+  width: 56px;
+  color: #fff;
+  font-size: 32px;
+  text-align: center;
+  border-radius: 100px;
+  cursor: pointer;
+  padding: 2px;
+}
+.useravatardiv{
+  margin-right: 13px;
+}
+.dashboard-content>h3{
+  margin-bottom: 20px; 
+}
+.msstoparentwrapper{
+  display: flex;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 0 1px rgb(48 51 54 / 8%), 0 2px 16px 0 rgb(48 51 54 / 8%);
+  padding: 31px 27px 4px 27px;
+  margin-bottom: 30px;
+}
+.mssgtoparentimage{
+  margin-top: -76px;
+}
+.viewedprofiles{
+  display: flex;
+}
+.viewedprofiles>span{
+  margin-right: 23px;
+  color: #0675c1; 
+}
+.viewedprofiles>p{
+  margin-bottom: 6px;
+  margin-right: 23px;
+}
+.bookstats{
+  margin-right: 31px;
+  margin-bottom: 0px;
+}
+.bookedstatsdiv{
+  display: flex;
+  align-items: baseline;
+}
+.bookedstatsdiv>span{
+  margin-right: 25px;
+  color: #0675c1;
+}
+.tutor-search-wrapper{
+  box-shadow: none;
+  margin-top: -1px;
+  margin-bottom: 0;
+  border-top: 3px solid #0675c1;
+  padding: 1em;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.dshbdfindatutorcontent{
+  display: flex;
+  padding-right: 0;
+}
+.dshbdfindatutorcontent>img{
+  flex-shrink: 0;
+  width: 35px;
+  height: auto;
+  margin: 0 1em 0 0;
+}
+.findftutordiv>h3{
+  font-size: 16px;
+  line-height: 1.25em;
+  font-weight: bold;
+  color: #303336;
+  margin-bottom: .25em;
+}
+.findftutordiv>p{
+  font-size: 1rem;
+  color: #303336;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+.unreadmsswrapp{
+  background: #fff;
+  padding: 20px 32px;
+  border-radius: 5px;
+}
+.dashbdunrdmssgrow{
+  margin: 23px 0px;
+}
+.unrdmss-title{
+  margin-bottom: 18px;
+  font-size:16px;
+  font-weight: 700;
+}
+.unreadmsswrapp>img{
+  margin-bottom:20px
+}
+.unreadmsswrapp>p{
+  margin-bottom:13px;
+  text-align: center;
+}
+.centerdbtn{
+  text-align: center;
+}
+.unrdmsss-btn{
+  display: inline-block;
+  text-align: center;
+  background: #0675c1;
+  color: #fff;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.slect-inputwrapper{
+  padding-left: 0px;
+}
+.tutorsearchlabel{
+  display: block;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.25em;
+  color: #545174;
+}
+.tutorsearchbtn{
+  text-align: center;
+  margin-top: 24px;
+  padding: 12px 0px;
+  background-color: #f5f4f7;
+  color: #0675c1;
+  font-weight: 700;
+  cursor: pointer;
+}
+.subjectselectinpt:invalid{
+  color: #303336;
+  font-size: 14px;
+}
+.recentlyviewed-section{
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 29px;
+  height: 100%;
+}
+.recentlyviewed-heading{
+  font-weight: 600;
 }

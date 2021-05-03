@@ -1,3 +1,25 @@
+/* @font-face {
+    font-family: "Gotham-Bold";
+    src: local("Gotham-Bold"),
+      url("../Gotham-Font/Gotham-Font/GothamBold.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "GothamBook";
+    src: local("GothamBook"),
+      url("../Gotham-Font/Gotham-Font/GothamBook.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Gotham-Medium";
+    src: local("Gotham-Medium"),
+      url("../Gotham-Font/Gotham-Font/GothamMedium.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Gotham-Thin";
+    src: local("Gotham-Thin"),
+      url("../Gotham-Font/Gotham-Font/Gotham-Thin.otf") format("truetype");
+  }
+   */
+
 *{
     margin: 0;
     padding: 0;
@@ -5,5 +27,5 @@
 }
 
 body{
-   font-family: "ubuntu";
+    font-family: 'Ubuntu', sans-serif;
 }
