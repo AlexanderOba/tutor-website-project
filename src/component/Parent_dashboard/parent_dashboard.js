@@ -3,7 +3,9 @@ import { Container, Row, Col } from "react-bootstrap";
 import "./parent_dashboard.css";
 import Accordion from "../widget/accordion";
 import DashboardSidenav from "./DashboardSidenav";
-import drpdwnarr from "../../images/dwn-arrw.png";
+import MenuItem from "@material-ui/core/MenuItem";
+import ListSubheader from "@material-ui/core/ListSubheader";
+import Select from "@material-ui/core/Select";
 import yoga from "../../images/yoga.png";
 
 const parentDashboard = () => {
@@ -22,7 +24,6 @@ const parentDashboard = () => {
               <div className="useravatardiv">
                 <span className="userimgspan">
                   <i className="fa fa-user"> </i>
-                  {/* <img src={art} className="img-fluid"/> */}
                 </span>
               </div>
               <div className="useravatardiv">David Armstrong</div>
@@ -51,86 +52,63 @@ const parentDashboard = () => {
                       <Col md={8}>
                         <Row>
                           <Col md={4} className="slect-inputwrapper">
-                          <label className="tutorsearchlabel">Subjects</label>
-                            <select
-                              className="subjectselectinpt rdseltinpt form-control"
-                              required
+                            <label className="tutorsearchlabel">Subjects</label>
+                            <Select
+                              labelId="grouped-select"
+                              defaultValue=""
+                              displayEmpty
+                              id="grouped-select"
+                              renderValue={selected => {
+                                if (selected.length === 0) {
+                                  return (
+                                    <p className="tutorselttgplaceholder">
+                                      All subjects
+                                    </p>
+                                  );
+                                }
+                                return selected;
+                              }}
                             >
-                              <option
-                                value=""
-                                className="rdsltopt"
-                                disabled
-                                selected
-                                hidden
-                              >
-                                All Level
-                              </option>
-                              <option value=" Biology" className="rdsltopt">
-                                Biology
-                              </option>
-                              <option value="Physics" className="rdsltopt">
-                                Physics
-                              </option>
-                              <option value=" Chemistry" className="rdsltopt">
-                                Chemistry
-                              </option>
-                              <option
-                                value="Mathematics"
-                                className="rdsltopt"
-                              >
-                              Mathematics
-                              </option>
-                              <option value="4" className="rdsltopt">
-                                Friend
-                              </option>
-                            </select>
-                            <div className="text-right">
-                              <img src={drpdwnarr} className="drparr" />
-                            </div>
-                            
+                              <MenuItem value="">All subjects</MenuItem>
+                              <ListSubheader>Category 1</ListSubheader>
+                              <MenuItem value="Mathematics">
+                                Mathematics
+                              </MenuItem>
+                              <MenuItem value="Chemistry">Chemistry</MenuItem>
+                              <MenuItem value="Physics">Physics</MenuItem>
+                              <MenuItem value="English">English</MenuItem>
+                            </Select>
                           </Col>
                           <Col md={4} className="slect-inputwrapper">
-                          <label className="tutorsearchlabel">Level</label>
-                            <select
-                              className="subjectselectinpt rdseltinpt form-control"
-                              required
+                            <label className="tutorsearchlabel">Level</label>
+                            <Select
+                              defaultValue=""
+                              id="grouped-select"
+                              displayEmpty
+                              id="grouped-select"
+                              renderValue={selected => {
+                                if (selected.length === 0) {
+                                  return (
+                                    <p className="tutorselttgplaceholder">
+                                      All Levels
+                                    </p>
+                                  );
+                                }
+                                return selected;
+                              }}
                             >
-                              <option
-                                value=""
-                                className="rdsltopt"
-                                disabled
-                                selected
-                                hidden
-                              >
-                                All Subjects
-                              </option>
-                              <option value="Facebook" className="rdsltopt">
-                                Facebook
-                              </option>
-                              <option value="Linkedin" className="rdsltopt">
-                                Linkedin
-                              </option>
-                              <option value="Instagram" className="rdsltopt">
-                                Instagram
-                              </option>
-                              <option
-                                value="Referral Link"
-                                className="rdsltopt"
-                              >
-                                Referral link
-                              </option>
-                              <option value="4" className="rdsltopt">
-                                Friend
-                              </option>
-                            </select>
-                            <div className="text-right">
-                              <img src={drpdwnarr} className="drparr" />
-                            </div>
+                              <MenuItem value="">All Levels</MenuItem>
+                              <ListSubheader>Category 1</ListSubheader>
+                              <MenuItem value="Basic 1">Basic 1</MenuItem>
+                              <MenuItem value="Basic 2">Basic 2</MenuItem>
+                              <ListSubheader>Category 2</ListSubheader>
+                              <MenuItem value="Basic 3">Basic 3</MenuItem>
+                              <MenuItem value="Basic 4">Basic 4</MenuItem>
+                              <MenuItem value="Basic 5">Basic 5</MenuItem>
+                            </Select>
                           </Col>
                           <Col md={4} className="slect-inputwrapper">
-                            <div className="tutorsearchbtn">
-                              FIND TUTORS
-                            </div>
+                            <div className="tutorsearchbtn">FIND TUTORS</div>
                           </Col>
                         </Row>
                       </Col>
@@ -145,12 +123,14 @@ const parentDashboard = () => {
                 <img src={yoga} className="img-fluid" />
                 <p>You’re all caught up. No unread messages</p>
                 <div className="centerdbtn">
-                 <span className="unrdmsss-btn">View all Messages</span>
+                  <span className="unrdmsss-btn">View all Messages</span>
                 </div>
               </Col>
-              <Col md={7}>
+              <Col md={7} className="recentlyviewd-sectioncol">
                 <div className="recentlyviewed-section">
-                   <h6 className="recentlyviewed-heading">Tutors Recently viewed</h6>
+                  <h6 className="recentlyviewed-heading">
+                    Tutors Recently viewed
+                  </h6>
                 </div>
               </Col>
             </Row>

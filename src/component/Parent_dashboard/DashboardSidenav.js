@@ -20,10 +20,20 @@ const DashboardSidenav = () => {
         <span className="fa fa-home sidenavicons"></span>
         Dashboard
       </NavLink>
-      <div className="sidenavlinkdiv">
+      <NavLink
+        to="/findtutors" 
+        className="sidenavlinkdiv"
+        activeStyle={{
+          backgroundColor: "#0675c1",
+          color: "#fff",
+          textDecoration: "none",
+          display: "block",
+          borderRadius: "5px"
+        }}
+      >
         <span className="fa fa-search sidenavicons"></span>
         Find a tutor
-      </div>
+      </NavLink>
       <div className="sidenavlinkdiv">
         <span className="fa fa-file-archive-o sidenavicons"></span>
         Bookings
