@@ -10,7 +10,7 @@ const DashboardSidenav = () => {
         to="/parent_dashboard"
         className="sidenavlinkdiv"
         activeStyle={{
-          backgroundColor: "#0675c1",
+          backgroundColor: "#1976d2",
           color: "#fff",
           textDecoration: "none",
           display: "block",
@@ -24,7 +24,7 @@ const DashboardSidenav = () => {
         to="/findtutors" 
         className="sidenavlinkdiv"
         activeStyle={{
-          backgroundColor: "#0675c1",
+          backgroundColor: "#1976d2",
           color: "#fff",
           textDecoration: "none",
           display: "block",

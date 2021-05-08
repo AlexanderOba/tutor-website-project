@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import "./parent_dashboard.css";
 import Accordion from "../widget/accordion";
@@ -108,7 +109,7 @@ const parentDashboard = () => {
                             </Select>
                           </Col>
                           <Col md={4} className="slect-inputwrapper">
-                            <div className="tutorsearchbtn">FIND TUTORS</div>
+                           <Link to="/findtutors"> <div className="tutorsearchbtn">FIND TUTORS</div></Link>
                           </Col>
                         </Row>
                       </Col>

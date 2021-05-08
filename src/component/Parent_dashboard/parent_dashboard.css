@@ -72,13 +72,14 @@
   box-shadow: 0px 2px 8px rgb(3 50 154 / 10%);
 }
 .arrow-down{
-  color: #70757a;
+  color: #1976d2;
   font-size: 14px;
+  margin-left: 10px;
   transition: .4s ease;
 }
 .arrowflip{
   transform: rotate(-180deg);
-  color: #70757a;
+  color: #1976d2;
   font-size: 14px;
   transition: .4s ease;
 }
@@ -100,7 +101,7 @@
   text-decoration: none;
 }
 .sidenavlinkdiv:hover{
-  background-color: #0675c1;
+  background-color: #1976d2;
   color: #fff;
   border-radius: 5px;
   cursor:pointer;
@@ -187,6 +188,13 @@
   height: auto;
   margin: 0 1em 0 0;
 }
+.subslctwrapper{
+  justify-content: space-around;
+  margin-bottom: 13px;
+}
+.subselectcontent{
+  width:67%;
+}
 .findftutordiv>h3{
   font-size: 16px;
   line-height: 1.25em;
@@ -227,7 +235,7 @@
 .unrdmsss-btn{
   display: inline-block;
   text-align: center;
-  background: #0675c1;
+  background: #1976d2;
   color: #fff;
   padding: 8px;
   font-size: 14px;
@@ -236,6 +244,9 @@
 }
 .slect-inputwrapper{
   padding-left: 0px;
+}
+.slect-inputwrapper a{
+  text-decoration: none;
 }
 .tutorsearchlabel{
   display: block;
@@ -303,17 +314,23 @@ width: 100%;
 .tutorselttgplaceholder{
   margin: 0;
 }
-.MuiPaper-root{
- top: 238px !important;
-}
 
 /* mobile responsiveness */
 @media (max-width: 760px){
   .dshbdfindatutorcontent {
+    display: block;
     margin-bottom: 15px;
+    padding-right: 15px;
+  }
+  .dshbdfindatutorcontent>img{
+    display: none;
+  }
+  .subselectcontent{
+    width: 100%;
   }
   .slect-inputwrapper{
     padding-left: 15px;
+    margin-bottom: 15px;
   }
   .recentlyviewd-sectioncol{
     padding-left: 0px;
