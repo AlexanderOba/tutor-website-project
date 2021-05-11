@@ -10,6 +10,7 @@ import About from './component/AboutUs/about';
 import Layout from './HOCs/layout';
 import parentDashboard from './component/Parent_dashboard/parent_dashboard';
 import findTutors from './component/Parent_dashboard/findtutors';
+import Messages from './component/Parent_dashboard/messages';
 
 class Routes extends Component{
     render(){
@@ -20,6 +21,7 @@ class Routes extends Component{
                     <Route   path ="/signup" component={Signup}/>
                     <Route   path ="/parent_dashboard" component={parentDashboard}/>
                     <Route   path ="/findtutors" component={findTutors}/>
+                    <Route   path ="/messages" component={Messages}/>
                     <Route   path ="/parent_signup" component={parentSignup}/>
                     <Route   path ="/tutor_signup" component={tutorSignup}/>
                     <Route   path ="/signin" component={Signin}/>

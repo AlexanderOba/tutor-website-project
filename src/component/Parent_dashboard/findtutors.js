@@ -5,21 +5,36 @@ import { Container, Row, Col } from "react-bootstrap";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import Select from "@material-ui/core/Select";
+import arrdown from '../../images/arrow-down.png';
+
 
 const findTutors = () => {
   const [state, setState] = useState({
     active: "",
     collapseHeight: "0px",
+    cardHeight: "0px",
     chevron: ""
   });
-  const { active, collapseHeight, chevron } = state;
+  const { active, cardHeight, collapseHeight, chevron } = state;
   const content = useRef();
+  const description = useRef();
   const toggleAccordion = () => {
     setState({
       ...state,
       active: active === "" ? "active" : "",
+      cardHeight:
+        active === "active" ? "0px" : `${description.current.scrollHeight}px`,
       collapseHeight:
         active === "active" ? "0px" : `${content.current.scrollHeight}px`,
+      chevron: active === "active" ? "" : "arrowflip"
+    });
+  };
+  const toggleCardAccordion = () => {
+    setState({
+      ...state,
+      active: active === "" ? "active" : "",
+      cardHeight:
+        active === "active" ? "0px" : `${description.current.scrollHeight}px`,
       chevron: active === "active" ? "" : "arrowflip"
     });
   };
@@ -41,9 +56,14 @@ const findTutors = () => {
                   <i className="fa fa-user"> </i>
                 </span>
               </div>
-              <div className="useravatardiv">David Armstrong</div>
+              <div className="useravatardiv dshbdusername">David Armstrong</div>
               <div className="useravatardiv">
                 <i className="fa fa-bell" style={{ color: "#70757a" }}>
+                  {" "}
+                </i>
+              </div>
+              <div className="useravatardiv mobilebars">
+                <i className="fa fa-bars" style={{ color: "#70757a" }}>
                   {" "}
                 </i>
               </div>
@@ -190,6 +210,46 @@ const findTutors = () => {
                         </Select>
                       </Col>
                     </Row>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={12}>
+                <div className="container-card">
+                  <div className="tutor-profile-cards-section">
+                    <div className="tutor-profile-wrapper">
+                      <div className="tutor-profile-card card-margin">
+                        <div className="tutor-img-wrapper">
+                          <span className="userimgspan tutor-img">
+                            <i className="fa fa-user"></i>
+                          </span>
+                        </div>
+                        <div classNAme="tutor-profile-content">
+                          <h6>Henry Isaac</h6>
+                          <div className="tutor-profile-heading" onClick={toggleCardAccordion}>
+                           <div> Obafemi Awolowo university - English (Masters){" "}</div>
+                            <span
+                            >
+                             <img src={arrdown}  className={`fa fa-chevron-down arrow-down ${chevron}`}/>
+                            </span>{" "}
+                          </div>
+                          <p
+                            className="acccollapsediv"
+                            style={{ maxHeight: `${cardHeight}` }}
+                            ref={description}
+                          >
+                            Undergraduate student offering tutoring in English
+                            and Politics for those seeking real-life help from a
+                            real-life student.
+                          </p>
+                          <p>ALSO OFFERS: ENGLISH LANGUAGE, +7 Others</p>
+                        </div>
+                        <div></div>
+                      </div>
+                      <div className="tutor-profile-card card-margin"></div>
+                      <div className="tutor-profile-card card-margin"></div>
+                    </div>
                   </div>
                 </div>
               </Col>

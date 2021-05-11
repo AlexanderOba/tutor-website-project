@@ -1,15 +1,29 @@
-import React, { useState } from "react";
-import {Link} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import "./parent_dashboard.css";
 import Accordion from "../widget/accordion";
 import DashboardSidenav from "./DashboardSidenav";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListSubheader from "@material-ui/core/ListSubheader";
+import SideNav from "react-simple-sidenav";
 import Select from "@material-ui/core/Select";
 import yoga from "../../images/yoga.png";
 
 const parentDashboard = () => {
+  useEffect(()=>{
+    window.scrollTo(-0,-0);
+  })
+  const [state, setState] = useState({
+    showNav: false
+  });
+  const toggleSideNav = action => {
+    setState({
+      ...state,
+      showNav: action
+    });
+  };
+
   return (
     <div>
       <Container fluid>
@@ -27,12 +41,38 @@ const parentDashboard = () => {
                   <i className="fa fa-user"> </i>
                 </span>
               </div>
-              <div className="useravatardiv">David Armstrong</div>
+              <div className="useravatardiv ccc">David Armstrong</div>
               <div className="useravatardiv">
-                <i className="fa fa-bell" style={{ color: "#70757a" }}>
+                <i
+                  className="fa fa-bell"
+                  style={{ color: "#70757a" }}
+                >
                   {" "}
                 </i>
               </div>
+              <div className="useravatardiv mobilebars">
+                <i
+                  className="fa fa-bars"
+                  onClick={() => toggleSideNav(true)}
+                  style={{ color: "#70757a" }}
+                >
+                  {" "}
+                </i>
+              </div>
+              <SideNav
+                showNav={state.showNav}
+                onOpenNav={() => toggleSideNav(true)}
+                onHideNav={() => toggleSideNav(false)}
+                navStyle={{
+                  width: "70%"
+                }}
+              >
+                {" "}
+                <div className="mobilesidenavwrapper">
+                  <Accordion />
+                  <DashboardSidenav />
+                </div>
+              </SideNav>
             </div>
             <h3>Hello, David</h3>
             <Row>
@@ -109,7 +149,10 @@ const parentDashboard = () => {
                             </Select>
                           </Col>
                           <Col md={4} className="slect-inputwrapper">
-                           <Link to="/findtutors"> <div className="tutorsearchbtn">FIND TUTORS</div></Link>
+                            <Link to="/findtutors">
+                              {" "}
+                              <div className="tutorsearchbtn">FIND TUTORS</div>
+                            </Link>
                           </Col>
                         </Row>
                       </Col>
@@ -143,27 +186,3 @@ const parentDashboard = () => {
 };
 export default parentDashboard;
 
-{
-  /* <div className="msstoparentwrapper">
-              <div className="msstoparentcntent">
-                <h4>Hello, David</h4>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit
-                  sunt praesentium veniam qui adipisci voluptates, quam tenetur
-                </p>
-                <div className="viewedprofiles">
-                  <p>Profiles viewed</p>
-                  <span className="fa fa-eye"></span>
-                  <p>10</p>
-                </div>
-                <div className="bookedstatsdiv">
-                  <p className="bookstats">Booked Tutors</p>
-                  <span className="fa fa-file-archive-o"></span>
-                  <p style={{ marginBottom: "0" }}>3</p>
-                </div>
-              </div>
-              <div className="mssgtoparentimage">
-                <img src={project} />
-              </div>
-            </div> */
-}

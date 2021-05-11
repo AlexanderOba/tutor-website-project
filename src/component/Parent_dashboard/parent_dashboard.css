@@ -9,6 +9,11 @@
   .sidenavpaddin{
     padding: 0px 17px;
   }
+  .mobilesidenavwrapper{
+    max-height: 130%;
+    overflow-y: scroll;
+    padding: 0px 18px;
+  }
 .userInfo-section{
   display: flex;
   background-color: #ffffff;
@@ -44,7 +49,7 @@
 .acccollapsediv{
   background-color: #ffffff;
   overflow: hidden;
-  transition: 0.4s ease;
+  transition: 0.4s ease !important;
 }
 .editprofdiv{
   display: flex;
@@ -75,13 +80,13 @@
   color: #1976d2;
   font-size: 14px;
   margin-left: 10px;
-  transition: .4s ease;
+  transition: .4s ease !important;
 }
 .arrowflip{
   transform: rotate(-180deg);
   color: #1976d2;
   font-size: 14px;
-  transition: .4s ease;
+  transition: .4s ease !important;
 }
 .dashboard-content{
   background-color: #f2f5fc;
@@ -96,7 +101,7 @@
   margin-bottom: 12px;
   transition: all .2s ease;
 }
-.sidenav a{
+.dashbdsidenav a{
   display: block ;
   text-decoration: none;
 }
@@ -135,39 +140,8 @@
 .dashboard-content>h3{
   margin-bottom: 20px; 
 }
-.msstoparentwrapper{
-  display: flex;
-  background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 0 0 1px rgb(48 51 54 / 8%), 0 2px 16px 0 rgb(48 51 54 / 8%);
-  padding: 31px 27px 4px 27px;
+.container-card{
   margin-bottom: 30px;
-}
-.mssgtoparentimage{
-  margin-top: -76px;
-}
-.viewedprofiles{
-  display: flex;
-}
-.viewedprofiles>span{
-  margin-right: 23px;
-  color: #0675c1; 
-}
-.viewedprofiles>p{
-  margin-bottom: 6px;
-  margin-right: 23px;
-}
-.bookstats{
-  margin-right: 31px;
-  margin-bottom: 0px;
-}
-.bookedstatsdiv{
-  display: flex;
-  align-items: baseline;
-}
-.bookedstatsdiv>span{
-  margin-right: 25px;
-  color: #0675c1;
 }
 .tutor-search-wrapper{
   margin-top: -1px;
@@ -314,9 +288,23 @@ width: 100%;
 .tutorselttgplaceholder{
   margin: 0;
 }
-
+.mobilebars{
+  display: none;
+}
 /* mobile responsiveness */
 @media (max-width: 760px){
+  .sidenav{
+    display: none;
+  }
+  .dshbdusername{
+    display: none;
+  }
+  .mobilebars{
+    display: block;
+  }
+  .sidenavlinkdiv {
+    padding: 7px 10px 7px 24px;
+  }
   .dshbdfindatutorcontent {
     display: block;
     margin-bottom: 15px;
@@ -336,4 +324,47 @@ width: 100%;
     padding-left: 0px;
     margin-top: 23px;
   }
+  .tutor-profile-wrapper{
+    flex-direction: column;
+  }
+  .tutor-profile-card{
+    width: 100% !important;
+  }
+  .card-margin:not(:last-child){
+    margin-bottom: 30px;
+  }
+  
+}
+
+/* tutor profile section styling */
+.tutor-profile-wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+.tutor-profile-card{
+  background-color: #fff;
+  border-radius: 5px;
+  width: 31%;
+  padding: 12px;
+}
+.tutor-img-wrapper{
+  text-align: center;
+}
+.tutor-img{
+  font-size: 68px;
+  height: 120px;
+  width: 120px;
+}
+.tutor-profile-heading{
+  display: flex;
+  align-items: baseline;
+  cursor: pointer;
+}
+.tutor-profile-heading>div{
+  width: 87%;
+  margin-bottom: 12px;
+}
+.tutor-profile-heading>span{
+  color: #70757a;
+  margin: 0;
 }
