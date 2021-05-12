@@ -333,7 +333,9 @@ width: 100%;
   .card-margin:not(:last-child){
     margin-bottom: 30px;
   }
-  
+  .tutor-offers{
+    font-size: 10px !important;
+  }
 }
 
 /* tutor profile section styling */
@@ -345,6 +347,7 @@ width: 100%;
   background-color: #fff;
   border-radius: 5px;
   width: 31%;
+  box-shadow: 0 8px 16px 0 rgb(24 19 87 / 7%);
   padding: 12px;
 }
 .tutor-img-wrapper{
@@ -355,6 +358,22 @@ width: 100%;
   height: 120px;
   width: 120px;
 }
+.tutor-profile-name{
+  display: flex;
+  justify-content: space-between;
+}
+.tutor-profile-pricetg{
+  margin: 0;
+}
+.tutor-profile-pricetg>span{
+  font-size: 12px;
+  color: #70757a;
+}
+.tutor-profile-content{
+  border-bottom: 1px solid #e4e4e4;
+  padding: 12px 2px 19px 2px;
+  margin-bottom: 9px;
+}
 .tutor-profile-heading{
   display: flex;
   align-items: baseline;
@@ -363,8 +382,54 @@ width: 100%;
 .tutor-profile-heading>div{
   width: 87%;
   margin-bottom: 12px;
+  font-size: 15px;
 }
 .tutor-profile-heading>span{
   color: #70757a;
   margin: 0;
+}
+.tutordescription{
+  font-size: 14px;
+}
+.tutor-offers{
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: #70757a;
+  white-space: nowrap;
+}
+.tutor-offers>em{
+ margin: 0px 9px;
+}
+.tutor-profile-stats{
+  display: flex;
+  margin-bottom: 5px;
+  align-items: baseline;
+}
+.tutor-profile-stats>span{
+  margin-right: 20px;
+  color: #1976d2;
+}
+.tutor-profile-stats>p{
+  margin: 0;
+}
+.tutor-profile-btn>span{
+  margin-top: 10px;
+  display: inline-block;
+  text-align: center;
+  background: #1976d2;
+  color: #fff;
+  font-weight: 700;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.greytext{
+  font-size: 12px;
+  color: #70757a;
 }

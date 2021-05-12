@@ -5,8 +5,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import Select from "@material-ui/core/Select";
-import arrdown from '../../images/arrow-down.png';
-
+import arrdown from "../../images/arrow-down.png";
 
 const findTutors = () => {
   const [state, setState] = useState({
@@ -225,17 +224,30 @@ const findTutors = () => {
                             <i className="fa fa-user"></i>
                           </span>
                         </div>
-                        <div classNAme="tutor-profile-content">
-                          <h6>Henry Isaac</h6>
-                          <div className="tutor-profile-heading" onClick={toggleCardAccordion}>
-                           <div> Obafemi Awolowo university - English (Masters){" "}</div>
-                            <span
-                            >
-                             <img src={arrdown}  className={`fa fa-chevron-down arrow-down ${chevron}`}/>
+                        <div className="tutor-profile-content">
+                          <div className="tutor-profile-name">
+                            <h5> Henry Isaac</h5>
+                            <p className="tutor-profile-pricetg">
+                              N13500 <span>/month</span>
+                            </p>
+                          </div>
+                          <div
+                            className="tutor-profile-heading"
+                            onClick={toggleCardAccordion}
+                          >
+                            <div>
+                              {" "}
+                              Obafemi Awolowo university - English (Masters){" "}
+                            </div>
+                            <span>
+                              <img
+                                src={arrdown}
+                                className={`fa fa-chevron-down arrow-down ${chevron}`}
+                              />
                             </span>{" "}
                           </div>
                           <p
-                            className="acccollapsediv"
+                            className="acccollapsediv tutordescription"
                             style={{ maxHeight: `${cardHeight}` }}
                             ref={description}
                           >
@@ -243,12 +255,152 @@ const findTutors = () => {
                             and Politics for those seeking real-life help from a
                             real-life student.
                           </p>
-                          <p>ALSO OFFERS: ENGLISH LANGUAGE, +7 Others</p>
+                          <div className="tutor-offers">
+                            OFFERS: <em>ENGLISH LANGUAGE</em>{" "}
+                            <span>+7 Others</span>
+                          </div>
                         </div>
-                        <div></div>
+                        <div>
+                          <div className="tutor-profile-stats">
+                            <span className="fa fa-star"></span>
+                            <p className="figures">5.0</p>
+                          </div>
+                          <div className="tutor-profile-stats">
+                            <span className="fa fa-calendar"></span>
+                            <p>
+                              12{" "}
+                              <span className="greytext">
+                                COMPLETED LESSONS
+                              </span>
+                            </p>
+                          </div>
+                          <div className="centerdbtn tutor-profile-btn">
+                            <span>View profile</span>
+                          </div>
+                        </div>
                       </div>
-                      <div className="tutor-profile-card card-margin"></div>
-                      <div className="tutor-profile-card card-margin"></div>
+                      <div className="tutor-profile-card card-margin">
+                        <div className="tutor-img-wrapper">
+                          <span className="userimgspan tutor-img">
+                            <i className="fa fa-user"></i>
+                          </span>
+                        </div>
+                        <div className="tutor-profile-content">
+                          <div className="tutor-profile-name">
+                            <h5> Mary Okon</h5>
+                            <p className="tutor-profile-pricetg">
+                              N13500 <span>/month</span>
+                            </p>
+                          </div>
+                          <div
+                            className="tutor-profile-heading"
+                            onClick={toggleCardAccordion}
+                          >
+                            <div>
+                              {" "}
+                              Obafemi Awolowo university - English (Masters){" "}
+                            </div>
+                            <span>
+                              <img
+                                src={arrdown}
+                                className={`fa fa-chevron-down arrow-down ${chevron}`}
+                              />
+                            </span>{" "}
+                          </div>
+                          <p
+                            className="acccollapsediv tutordescription"
+                            style={{ maxHeight: `${cardHeight}` }}
+                            ref={description}
+                          >
+                            Undergraduate student offering tutoring in English
+                            and Politics for those seeking real-life help from a
+                            real-life student.
+                          </p>
+                          <div className="tutor-offers">
+                            OFFERS: <em>ENGLISH LANGUAGE</em>{" "}
+                            <span>+7 Others</span>
+                          </div>
+                        </div>
+                        <div>
+                          <div className="tutor-profile-stats">
+                            <span className="fa fa-star"></span>
+                            <p className="figures">5.0</p>
+                          </div>
+                          <div className="tutor-profile-stats">
+                            <span className="fa fa-calendar"></span>
+                            <p>
+                              12{" "}
+                              <span className="greytext">
+                                COMPLETED LESSONS
+                              </span>
+                            </p>
+                          </div>
+                          <div className="centerdbtn tutor-profile-btn">
+                            <span>View profile</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="tutor-profile-card card-margin">
+                        <div className="tutor-img-wrapper">
+                          <span className="userimgspan tutor-img">
+                            <i className="fa fa-user"></i>
+                          </span>
+                        </div>
+                        <div className="tutor-profile-content">
+                          <div className="tutor-profile-name">
+                            <h5> Thomas Cook</h5>
+                            <p className="tutor-profile-pricetg">
+                              N13500 <span>/month</span>
+                            </p>
+                          </div>
+                          <div
+                            className="tutor-profile-heading"
+                            onClick={toggleCardAccordion}
+                          >
+                            <div>
+                              {" "}
+                              Obafemi Awolowo university - English (Masters){" "}
+                            </div>
+                            <span>
+                              <img
+                                src={arrdown}
+                                className={`fa fa-chevron-down arrow-down ${chevron}`}
+                              />
+                            </span>{" "}
+                          </div>
+                          <p
+                            className="acccollapsediv tutordescription"
+                            style={{ maxHeight: `${cardHeight}` }}
+                            ref={description}
+                          >
+                            Undergraduate student offering tutoring in English
+                            and Politics for those seeking real-life help from a
+                            real-life student.
+                          </p>
+                          <div className="tutor-offers">
+                            OFFERS: <em>ENGLISH LANGUAGE</em>{" "}
+                            <span>+7 Others</span>
+                          </div>
+                        </div>
+                        <div>
+                          <div className="tutor-profile-stats">
+                            <span className="fa fa-star"></span>
+                            <p className="figures">5.0</p>
+                          </div>
+                          <div className="tutor-profile-stats">
+                            <span className="fa fa-calendar"></span>
+                            <p>
+                              12{" "}
+                              <span className="greytext">
+                                COMPLETED LESSONS
+                              </span>
+                            </p>
+                          </div>
+                          <div className="centerdbtn tutor-profile-btn">
+                            <span>View profile</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
